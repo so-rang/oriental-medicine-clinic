@@ -118,13 +118,13 @@ export function QuizFlow() {
             className="text-center"
           >
             <span className="font-myeongjo text-sm tracking-[0.4em] text-moss">
-              四 象 體 質
+              始 作
             </span>
-            <h1 className="mt-6 font-myeongjo text-3xl leading-snug text-ink md:text-5xl">
-              네 가지 질문이면,
+            <h2 className="mt-6 font-myeongjo text-3xl leading-snug text-ink md:text-4xl">
+              한 박자 멈춰,
               <br />
-              당신의 체질이 보입니다.
-            </h1>
+              당신의 결을 짚어봅니다.
+            </h2>
             <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-ink-soft">
               사상체질은 사람을 네 가지 결(태양·태음·소양·소음)로 나누는 한방의
               체질 분류입니다. 가벼운 자기 진단이며, 정확한 진단은 진료실의

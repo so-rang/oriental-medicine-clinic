@@ -357,10 +357,36 @@ export default function Home() {
         ))}
       </section>
 
+      {/* Cinematic transition cut */}
+      <section
+        aria-hidden
+        className="relative h-[40svh] min-h-[280px] w-full overflow-hidden"
+      >
+        <Image
+          src="/images/hero-gate.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, var(--color-hanji-deep) 0%, rgba(15,20,15,0.4) 30%, rgba(15,20,15,0.7) 100%)",
+          }}
+        />
+        <div className="absolute inset-0 flex items-center justify-center px-6">
+          <p className="font-myeongjo text-2xl leading-relaxed text-hanji md:text-3xl">
+            “ 같은 증상도, 다른 체질로. ”
+          </p>
+        </div>
+      </section>
+
       {/* ─────────────────────────── QUIZ ─────────────────────────── */}
       <section
         id="quiz"
-        className="scroll-mt-24 border-y border-paper-line bg-ink py-24 text-hanji"
+        className="scroll-mt-24 bg-ink py-24 text-hanji"
       >
         <div className="mx-auto max-w-6xl px-6 text-center">
           <span className="font-myeongjo text-sm tracking-[0.4em] text-moss/80">
@@ -478,7 +504,7 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────── FAQ ─────────────────────────── */}
-      <section id="faq" className="scroll-mt-24 bg-hanji py-32">
+      <section id="faq" className="scroll-mt-24 bg-hanji py-20">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -496,20 +522,17 @@ export default function Home() {
             }),
           }}
         />
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-3xl px-6">
           <div className="text-center">
-            <span className="font-myeongjo text-sm tracking-[0.4em] text-moss">
+            <span className="font-myeongjo text-xs tracking-[0.4em] text-moss">
               問 答
             </span>
-            <h2 className="mt-4 font-myeongjo text-3xl leading-snug text-ink md:text-5xl">
+            <h2 className="mt-3 font-myeongjo text-2xl leading-snug text-ink md:text-3xl">
               자주 묻는 질문.
             </h2>
-            <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-ink-soft">
-              진료실에서 자주 받는 열 가지 질문과 류은서 원장의 답변입니다.
-            </p>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-10">
             <FaqAccordion items={FAQ} />
           </div>
         </div>
@@ -518,25 +541,22 @@ export default function Home() {
       {/* ─────────────────────────── RESERVATION ─────────────────────────── */}
       <section
         id="reservation"
-        className="scroll-mt-24 border-t border-paper-line bg-hanji-deep/40 py-32"
+        className="scroll-mt-24 border-t border-paper-line bg-hanji-deep/40 py-16"
       >
         <div className="mx-auto max-w-2xl px-6">
           <div className="text-center">
-            <span className="font-myeongjo text-sm tracking-[0.4em] text-moss">
+            <span className="font-myeongjo text-xs tracking-[0.4em] text-moss">
               診 療 豫 約
             </span>
-            <h2 className="mt-6 font-myeongjo text-3xl leading-snug text-ink md:text-5xl">
-              먼저 한 박자
-              <br />
-              쉬어가시겠어요.
+            <h2 className="mt-3 font-myeongjo text-2xl leading-snug text-ink md:text-3xl">
+              진료 문의.
             </h2>
-            <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-soft">
-              예약 요청을 보내주시면 영업일 기준 24시간 이내에 진료실에서
-              카카오톡 또는 전화로 일정 확정을 도와드립니다.
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
+              영업일 24시간 이내 카카오톡·전화로 일정 확정을 도와드립니다.
             </p>
           </div>
 
-          <div className="mt-16">
+          <div className="mt-8">
             <Suspense
               fallback={<div className="h-32 animate-pulse bg-hanji" />}
             >
