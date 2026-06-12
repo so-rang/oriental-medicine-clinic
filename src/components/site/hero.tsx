@@ -22,13 +22,18 @@ export function Hero() {
           backgroundPosition: "center",
         }}
       />
-      {/* Dark overlay to make the hero text legible and feel like a recessed space */}
+      {/* Dark overlay to make the hero text legible */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-black/55"
+      />
+      {/* Extra radial darken behind the headline */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "linear-gradient(180deg, rgba(15,20,15,0.65) 0%, rgba(15,20,15,0.45) 40%, rgba(15,20,15,0.7) 100%)",
+            "radial-gradient(ellipse 60% 50% at center 50%, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 70%)",
         }}
       />
 
