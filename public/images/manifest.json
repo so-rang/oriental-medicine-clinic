@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "timestamp": "2026-06-12T15:40:14+09:00",
+  "options": {
+    "size": "1024x1280",
+    "quality": "high",
+    "count": 1
+  },
+  "cost_estimate_usd": 0.04,
+  "runs": [
+    {
+      "vendor": "codex",
+      "model": "unknown",
+      "strategy": "unknown",
+      "strategy_attempts": [],
+      "files": [],
+      "duration_ms": 165402,
+      "status": "failed",
+      "error": {
+        "kind": "other",
+        "message": "\nreading additional input from stdin...\nopenai codex v0.125.0 (research preview)\n--------\nworkdir: /users/sorang/desktop/hospital/oriental-medicine-clinic\nmodel: gpt-5.5\nprovider: openai\napproval: never\nsandbox: read-only\nreasoning effort: medium\nreasoning summaries: none\nsession id: 019eba8f-4d44-7c33-a58c-986dd76a145f\n--------\nuser\ngenerate one image with the image_gen tool using model gpt-image"
+      }
+    }
+  ],
+  "prompt": "editorial portrait photograph of a Korean female traditional Korean medicine doctor in her early 40s, dignified scholarly presence, gentle composed expression with a faint warm smile, looking slightly off camera, soft natural warm window light from the left, wearing a soft cream-beige modern hanbok-inspired jeogori with subtle dark indigo collar trim, hair neatly pulled back into a low bun, head and shoulders composition, shallow depth of field, photographed inside a quiet Korean hanok study with blurred hanji paper screens and dark wood beams in background, traditional ink calligraphy faintly visible on the wall, muted earthy color palette of warm beige moss green and ink black, photorealistic editorial photography, Kodak Portra 400 film aesthetic, fine skin texture, no text, no watermark"
+}

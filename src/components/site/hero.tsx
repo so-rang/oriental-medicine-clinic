@@ -12,16 +12,31 @@ export function Hero() {
 
   return (
     <section className="relative isolate flex h-[100svh] min-h-[640px] w-full items-center justify-center overflow-hidden">
-      {/* Background — real Bukchon hanok courtyard (seen through the opening gate) */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10"
-        style={{
-          backgroundImage: "url(/images/courtyard.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
+      {/* Background — cinematic video of a hanok gate opening (real Bukchon photo as poster) */}
+      {prefersReduced ? (
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-20"
+          style={{
+            backgroundImage: "url(/images/courtyard.jpg)",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        />
+      ) : (
+        <video
+          aria-hidden
+          autoPlay
+          muted
+          playsInline
+          preload="auto"
+          poster="/images/wooden-gate.jpg"
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
+        >
+          <source src="/images/hanok-gate-opening.mp4" type="video/mp4" />
+        </video>
+      )}
+
       {/* Dark overlay to make the hero text legible */}
       <div
         aria-hidden
@@ -37,7 +52,7 @@ export function Hero() {
         }}
       />
 
-      {/* Hero content (behind the gate) */}
+      {/* Hero content */}
       <motion.div
         initial={{ opacity: 0, y: 12 }}
         animate={{ opacity: 1, y: 0 }}
@@ -75,8 +90,8 @@ export function Hero() {
         </div>
       </motion.div>
 
-      {/* The doors — open after delay */}
-      <HanokGate />
+      {/* Doors only for reduced-motion users — replaces video with SVG opening */}
+      {prefersReduced && <HanokGate />}
 
       {/* Scroll cue */}
       <motion.div
