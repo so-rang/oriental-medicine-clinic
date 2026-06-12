@@ -209,19 +209,11 @@ export default function Home() {
         >
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-paper-line bg-hanji-deep/60">
             <Image
-              src="/images/consultation-room.png"
-              alt="별채 한의원 진료실 — 류은서 원장이 진맥을 보는 한옥 공간"
+              src="/images/dr-ryu.jpg"
+              alt="류은서 원장 — 한옥 진료실에서"
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover"
-            />
-            <div
-              aria-hidden
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(180deg, rgba(245,241,232,0.05) 0%, rgba(15,20,15,0.15) 100%)",
-              }}
             />
             <div className="absolute right-4 top-4 ink-seal">柳</div>
           </div>
