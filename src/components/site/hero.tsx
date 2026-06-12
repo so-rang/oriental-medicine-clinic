@@ -12,22 +12,23 @@ export function Hero() {
 
   return (
     <section className="relative isolate flex h-[100svh] min-h-[640px] w-full items-center justify-center overflow-hidden">
-      {/* Background — courtyard gradient (image fallback) */}
+      {/* Background — real Bukchon hanok courtyard (seen through the opening gate) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          backgroundImage: "url(/images/courtyard.jpg)",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+      {/* Dark overlay to make the hero text legible and feel like a recessed space */}
       <div
         aria-hidden
         className="absolute inset-0 -z-10"
         style={{
           background:
-            "radial-gradient(ellipse at center 70%, #2f4030 0%, #1f2a20 40%, #0d130e 100%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 opacity-20 mix-blend-overlay"
-        style={{
-          backgroundImage:
-            "radial-gradient(rgba(255,255,255,0.6) 1px, transparent 1px)",
-          backgroundSize: "3px 3px",
+            "linear-gradient(180deg, rgba(15,20,15,0.65) 0%, rgba(15,20,15,0.45) 40%, rgba(15,20,15,0.7) 100%)",
         }}
       />
 

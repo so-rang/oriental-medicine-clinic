@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -168,42 +169,22 @@ export default function Home() {
 
           <div className="order-1 md:order-2">
             <div className="relative aspect-[4/5] w-full overflow-hidden border border-paper-line bg-hanji-deep">
+              <Image
+                src="/images/wooden-gate.jpg"
+                alt="북촌 한옥 마을의 나무 대문 — 별채로 들어가는 길"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                priority
+              />
               <div
                 aria-hidden
                 className="absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, #ddd4bd 0%, #c8bca0 60%, #8b7d62 100%)",
+                    "linear-gradient(180deg, rgba(245,241,232,0.05) 0%, rgba(15,20,15,0.15) 100%)",
                 }}
               />
-              <svg
-                viewBox="0 0 400 500"
-                className="absolute inset-0 h-full w-full"
-                preserveAspectRatio="xMidYMid slice"
-                aria-hidden
-              >
-                <defs>
-                  <linearGradient id="roof" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#3a2a1b" />
-                    <stop offset="100%" stopColor="#1f160e" />
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M0,320 Q100,240 200,280 T400,260 L400,500 L0,500 Z"
-                  fill="#7a6f56"
-                  opacity="0.4"
-                />
-                <path
-                  d="M40,300 Q200,200 360,300 L360,330 L40,330 Z"
-                  fill="url(#roof)"
-                />
-                <rect x="60" y="330" width="280" height="120" fill="#2a1f15" />
-                <rect x="100" y="360" width="60" height="90" fill="#0d0905" />
-                <rect x="240" y="360" width="60" height="90" fill="#0d0905" />
-                <ellipse cx="200" cy="470" rx="20" ry="6" fill="#5a513e" />
-                <ellipse cx="170" cy="485" rx="18" ry="5" fill="#5a513e" />
-                <ellipse cx="230" cy="488" rx="18" ry="5" fill="#5a513e" />
-              </svg>
               <div className="absolute right-4 top-4 ink-seal">別</div>
             </div>
           </div>
@@ -311,33 +292,6 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-px bg-paper-line md:grid-cols-2">
-            {TREATMENT_OVERVIEW.map((item) => (
-              <a
-                key={item.id}
-                href={`#${item.id}`}
-                className="group relative flex flex-col gap-6 bg-hanji p-8 transition-colors hover:bg-hanji-deep/50 md:p-12"
-              >
-                <div className="flex items-start justify-between">
-                  <span className="font-myeongjo text-3xl text-moss">
-                    {item.seal}
-                  </span>
-                  <span className="text-xs tracking-widest text-ink-soft">
-                    {item.duration}
-                  </span>
-                </div>
-                <h3 className="font-myeongjo text-2xl text-ink">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-ink-soft">
-                  {item.summary}
-                </p>
-                <span className="mt-auto pt-4 text-sm text-moss group-hover:underline">
-                  자세히 보기 →
-                </span>
-              </a>
-            ))}
-          </div>
         </div>
 
         {/* Detail sections */}
@@ -430,21 +384,38 @@ export default function Home() {
       </section>
 
       {/* ─────────────────────────── LOCATION ─────────────────────────── */}
-      <section
-        id="location"
-        className="scroll-mt-24 bg-hanji-deep/40 py-32"
-      >
-        <div className="mx-auto max-w-6xl px-6">
-          <div className="text-center">
-            <span className="font-myeongjo text-sm tracking-[0.4em] text-moss">
+      <section id="location" className="scroll-mt-24">
+        {/* Full-width hanok alley header */}
+        <div className="relative h-[50svh] min-h-[400px] w-full overflow-hidden">
+          <Image
+            src="/images/alley.jpg"
+            alt="블루아워의 북촌 한옥 마을 골목"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(15,20,15,0.35) 0%, rgba(15,20,15,0.15) 50%, var(--color-hanji-deep) 100%)",
+            }}
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center text-hanji">
+            <span className="font-myeongjo text-sm tracking-[0.4em] text-hanji/80">
               位 置
             </span>
-            <h2 className="mt-4 font-myeongjo text-3xl leading-snug text-ink md:text-5xl">
+            <h2 className="mt-4 font-myeongjo text-3xl leading-snug md:text-5xl">
               북촌 한옥 골목 안의
               <br />
               조용한 서재.
             </h2>
           </div>
+        </div>
+
+        <div className="bg-hanji-deep/40 py-24">
+          <div className="mx-auto max-w-6xl px-6">
 
           <div className="mt-16 grid gap-16 md:grid-cols-[1fr_1.4fr] md:items-start">
             <div>
@@ -501,6 +472,7 @@ export default function Home() {
                 </p>
               </div>
             ))}
+          </div>
           </div>
         </div>
       </section>
