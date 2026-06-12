@@ -64,7 +64,7 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${myeongjo.variable} ${pretendard.variable} h-full antialiased`}
+      className={`${myeongjo.variable} ${pretendard.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SiteHeader />

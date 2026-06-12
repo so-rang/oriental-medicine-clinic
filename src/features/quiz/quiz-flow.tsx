@@ -138,7 +138,7 @@ export function QuizFlow() {
                 시작하기 →
               </button>
               <Link
-                href="/treatments#diagnosis"
+                href="#diagnosis"
                 className="font-myeongjo text-sm text-moss underline-offset-4 hover:underline"
               >
                 정식 체질진단 진료 보기
@@ -310,7 +310,7 @@ function ResultView({
         </p>
         <div className="flex flex-col gap-3 sm:flex-row">
           <LinkButton
-            href={`/reservation?type=${result.key}`}
+            href={`/?type=${result.key}#reservation`}
             size="lg"
           >
             이 결과로 예약하기 →

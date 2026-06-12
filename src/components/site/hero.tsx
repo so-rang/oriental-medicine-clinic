@@ -54,13 +54,13 @@ export function Hero() {
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row">
           <LinkButton
-            href="/reservation"
+            href="#reservation"
             className="bg-hanji text-ink hover:bg-hanji-deep"
           >
             진료 예약하기
           </LinkButton>
           <LinkButton
-            href="/quiz"
+            href="#quiz"
             variant="outline"
             className="border-hanji/40 text-hanji hover:border-hanji hover:bg-hanji/10"
           >

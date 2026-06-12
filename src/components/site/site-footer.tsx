@@ -4,26 +4,26 @@ const SECTIONS = [
   {
     title: "진료",
     items: [
-      { href: "/treatments#diagnosis", label: "사상체질 진단" },
-      { href: "/treatments#herbal", label: "맞춤 한약" },
-      { href: "/treatments#pharmacopuncture", label: "약침" },
-      { href: "/treatments#sleep-digestion", label: "수면·소화 클리닉" },
+      { href: "/#diagnosis", label: "사상체질 진단" },
+      { href: "/#herbal", label: "맞춤 한약" },
+      { href: "/#pharmacopuncture", label: "약침" },
+      { href: "/#sleep-digestion", label: "수면·소화 클리닉" },
     ],
   },
   {
     title: "별채",
     items: [
-      { href: "/about", label: "소개" },
-      { href: "/quiz", label: "1분 체질 진단" },
-      { href: "/faq", label: "자주 묻는 질문" },
+      { href: "/#about", label: "소개" },
+      { href: "/#quiz", label: "1분 체질 진단" },
+      { href: "/#faq", label: "자주 묻는 질문" },
       { href: "/admin", label: "콘텐츠 관리" },
     ],
   },
   {
     title: "찾아오시는 길",
     items: [
-      { href: "/location", label: "오시는 길" },
-      { href: "/reservation", label: "예약·문의" },
+      { href: "/#location", label: "오시는 길" },
+      { href: "/#reservation", label: "예약·문의" },
     ],
   },
 ];

@@ -3,18 +3,18 @@ import Link from "next/link";
 import { LinkButton } from "@/components/ui/button";
 
 const NAV = [
-  { href: "/about", label: "소개" },
-  { href: "/treatments", label: "진료" },
-  { href: "/quiz", label: "체질 진단" },
-  { href: "/location", label: "오시는 길" },
-  { href: "/faq", label: "자주 묻는 질문" },
+  { href: "/#about", label: "소개" },
+  { href: "/#treatments", label: "진료" },
+  { href: "/#quiz", label: "체질 진단" },
+  { href: "/#location", label: "오시는 길" },
+  { href: "/#faq", label: "자주 묻는 질문" },
 ];
 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-paper-line/60 bg-hanji/85 backdrop-blur supports-[backdrop-filter]:bg-hanji/70">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" className="flex items-baseline gap-2">
+        <Link href="/#top" className="flex items-baseline gap-2">
           <span className="font-myeongjo text-2xl text-ink leading-none">
             別宅
           </span>
@@ -38,7 +38,7 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <LinkButton href="/reservation" size="sm" className="text-sm">
+        <LinkButton href="/#reservation" size="sm" className="text-sm">
           예약하기
         </LinkButton>
       </div>

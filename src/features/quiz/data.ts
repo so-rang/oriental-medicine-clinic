@@ -156,12 +156,12 @@ export const RESULTS: Record<Constitution, ConstitutionResult> = {
     cautions: ["과로 후 급격한 피로", "속쓰림·역류감", "감정의 기복"],
     recommended: [
       {
-        href: "/treatments#diagnosis",
+        href: "#diagnosis",
         title: "사상체질 진단",
         reason: "달리는 결을 어디까지 풀어줘야 할지 먼저 가늠합니다.",
       },
       {
-        href: "/treatments#pharmacopuncture",
+        href: "#pharmacopuncture",
         title: "약침",
         reason: "긴장된 어깨·뒷목과 흩어진 기운을 빠르게 모아줍니다.",
       },
@@ -178,12 +178,12 @@ export const RESULTS: Record<Constitution, ConstitutionResult> = {
     cautions: ["순환 정체", "체중 증가", "땀이 많아도 무거운 피로"],
     recommended: [
       {
-        href: "/treatments#herbal",
+        href: "#herbal",
         title: "맞춤 한약",
         reason: "정체된 흐름을 풀어 본래의 순환으로 돌려놓습니다.",
       },
       {
-        href: "/treatments#sleep-digestion",
+        href: "#sleep-digestion",
         title: "수면·소화 클리닉",
         reason: "아침의 무거움을 한 달 단위로 다듬는 패키지.",
       },
@@ -200,12 +200,12 @@ export const RESULTS: Record<Constitution, ConstitutionResult> = {
     cautions: ["불면·상열감", "위장 자극", "감정의 빠른 소진"],
     recommended: [
       {
-        href: "/treatments#sleep-digestion",
+        href: "#sleep-digestion",
         title: "수면·소화 클리닉",
         reason: "위로 뜬 열을 가라앉히고 잠의 리듬을 다시 잡습니다.",
       },
       {
-        href: "/treatments#diagnosis",
+        href: "#diagnosis",
         title: "사상체질 진단",
         reason: "체질 안에서도 한열의 결이 가장 다르게 갈립니다.",
       },
@@ -222,12 +222,12 @@ export const RESULTS: Record<Constitution, ConstitutionResult> = {
     cautions: ["소화 약함", "추위·낮은 체력", "예민함·불안"],
     recommended: [
       {
-        href: "/treatments#herbal",
+        href: "#herbal",
         title: "맞춤 한약",
         reason: "차고 약한 속을 천천히 데우는 가장 기본의 처방.",
       },
       {
-        href: "/treatments#pharmacopuncture",
+        href: "#pharmacopuncture",
         title: "약침",
         reason: "기력의 회전을 끌어올려 회복을 앞당깁니다.",
       },
