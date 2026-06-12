@@ -216,36 +216,13 @@ export default function Home() {
           className="mx-auto mt-32 grid max-w-6xl scroll-mt-24 gap-16 px-6 md:grid-cols-[1fr_1.4fr] md:items-center"
         >
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-paper-line bg-hanji-deep/60">
-            <svg
-              viewBox="0 0 200 250"
-              className="absolute inset-0 h-full w-full"
-              aria-hidden
-            >
-              <defs>
-                <linearGradient id="avatar-bg" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#ece5d3" />
-                  <stop offset="100%" stopColor="#c4b896" />
-                </linearGradient>
-              </defs>
-              <rect width="200" height="250" fill="url(#avatar-bg)" />
-              <circle cx="100" cy="100" r="42" fill="#1a1a1a" opacity="0.18" />
-              <path
-                d="M40,250 Q40,180 100,180 Q160,180 160,250 Z"
-                fill="#1a1a1a"
-                opacity="0.22"
-              />
-              <text
-                x="100"
-                y="232"
-                textAnchor="middle"
-                fontFamily="serif"
-                fontSize="14"
-                fill="#1a1a1a"
-                opacity="0.5"
-              >
-                柳 銀 瑞
-              </text>
-            </svg>
+            <Image
+              src="/images/dr-ryu.jpg"
+              alt="류은서 원장 — 한옥 진료실에서"
+              fill
+              sizes="(max-width: 768px) 100vw, 400px"
+              className="object-cover"
+            />
             <div className="absolute right-4 top-4 ink-seal">柳</div>
           </div>
 
