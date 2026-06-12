@@ -326,32 +326,6 @@ export default function Home() {
         ))}
       </section>
 
-      {/* Cinematic transition cut */}
-      <section
-        aria-hidden
-        className="relative h-[40svh] min-h-[280px] w-full overflow-hidden"
-      >
-        <Image
-          src="/images/hero-gate.jpg"
-          alt=""
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(180deg, var(--color-hanji-deep) 0%, rgba(15,20,15,0.4) 30%, rgba(15,20,15,0.7) 100%)",
-          }}
-        />
-        <div className="absolute inset-0 flex items-center justify-center px-6">
-          <p className="font-myeongjo text-2xl leading-relaxed text-hanji md:text-3xl">
-            “ 같은 증상도, 다른 체질로. ”
-          </p>
-        </div>
-      </section>
-
       {/* ─────────────────────────── QUIZ ─────────────────────────── */}
       <section
         id="quiz"
@@ -404,7 +378,7 @@ export default function Home() {
             <h2 className="mt-4 font-myeongjo text-3xl leading-snug md:text-5xl">
               북촌 한옥 골목 안의
               <br />
-              조용한 서재.
+              조용한 휴식처.
             </h2>
           </div>
         </div>
