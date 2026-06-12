@@ -170,7 +170,7 @@ export default function Home() {
           <div className="order-1 md:order-2">
             <div className="relative aspect-[4/5] w-full overflow-hidden border border-paper-line bg-hanji-deep">
               <Image
-                src="/images/byulchae-interior.png"
+                src="/images/byulchae-interior.jpg"
                 alt="별채 한의원 내부 — 한옥 서까래와 격자 창살, 모던한 흰 의자가 어우러진 진료 공간"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
