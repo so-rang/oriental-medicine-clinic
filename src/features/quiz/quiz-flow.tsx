@@ -117,25 +117,16 @@ export function QuizFlow() {
             transition={{ duration: 0.4 }}
             className="text-center"
           >
-            <span className="font-myeongjo text-sm tracking-[0.4em] text-moss">
-              始 作
-            </span>
-            <h2 className="mt-6 font-myeongjo text-3xl leading-snug text-ink md:text-4xl">
-              한 박자 멈춰,
-              <br />
-              당신의 결을 짚어봅니다.
-            </h2>
-            <p className="mx-auto mt-8 max-w-lg text-base leading-relaxed text-ink-soft">
-              사상체질은 사람을 네 가지 결(태양·태음·소양·소음)로 나누는 한방의
-              체질 분류입니다. 가벼운 자기 진단이며, 정확한 진단은 진료실의
-              맥진·설진과 함께 이루어집니다.
+            <p className="mx-auto max-w-lg text-sm leading-relaxed text-ink-soft">
+              ※ 가벼운 자기 진단입니다. 정확한 진단은 진료실의 맥진·설진과
+              함께 이루어집니다.
             </p>
-            <div className="mt-12 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <button
                 onClick={startQuiz}
-                className="inline-flex items-center justify-center gap-2 bg-moss px-8 py-4 font-myeongjo text-base text-hanji transition-colors hover:bg-moss-deep"
+                className="inline-flex items-center justify-center gap-2 bg-moss px-10 py-4 font-myeongjo text-base text-hanji transition-colors hover:bg-moss-deep"
               >
-                시작하기 →
+                체질 진단하기 →
               </button>
               <Link
                 href="#diagnosis"
