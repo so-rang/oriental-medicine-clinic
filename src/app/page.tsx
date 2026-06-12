@@ -170,20 +170,12 @@ export default function Home() {
           <div className="order-1 md:order-2">
             <div className="relative aspect-[4/5] w-full overflow-hidden border border-paper-line bg-hanji-deep">
               <Image
-                src="/images/wooden-gate.jpg"
-                alt="북촌 한옥 마을의 나무 대문 — 별채로 들어가는 길"
+                src="/images/byulchae-interior.png"
+                alt="별채 한의원 내부 — 한옥 서까래와 격자 창살, 모던한 흰 의자가 어우러진 진료 공간"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
                 priority
-              />
-              <div
-                aria-hidden
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(245,241,232,0.05) 0%, rgba(15,20,15,0.15) 100%)",
-                }}
               />
               <div className="absolute right-4 top-4 ink-seal">別</div>
             </div>
@@ -217,11 +209,19 @@ export default function Home() {
         >
           <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden border border-paper-line bg-hanji-deep/60">
             <Image
-              src="/images/dr-ryu.jpg"
-              alt="류은서 원장 — 한옥 진료실에서"
+              src="/images/consultation-room.png"
+              alt="별채 한의원 진료실 — 류은서 원장이 진맥을 보는 한옥 공간"
               fill
               sizes="(max-width: 768px) 100vw, 400px"
               className="object-cover"
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgba(245,241,232,0.05) 0%, rgba(15,20,15,0.15) 100%)",
+              }}
             />
             <div className="absolute right-4 top-4 ink-seal">柳</div>
           </div>
