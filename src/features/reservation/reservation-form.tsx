@@ -45,7 +45,7 @@ export function ReservationForm() {
           受 付 完 了
         </span>
         <h2 className="mt-6 font-myeongjo text-3xl text-ink md:text-4xl">
-          예약 요청이 접수되었습니다.
+          예약 요청이 접수되었습니다
         </h2>
         <p className="mx-auto mt-6 max-w-md text-base leading-relaxed text-ink-soft">
           영업일 기준 24시간 이내에 진료실에서 카카오톡 또는 전화로 일정

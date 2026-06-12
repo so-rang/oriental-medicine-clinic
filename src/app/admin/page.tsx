@@ -189,7 +189,7 @@ export default function AdminPage() {
                 챔피언 키워드
               </p>
               <h2 className="mt-2 font-myeongjo text-2xl text-ink">
-                이번 주의 결.
+                이번 주의 결
               </h2>
             </div>
             <button className="text-xs text-ink-soft hover:text-ink">

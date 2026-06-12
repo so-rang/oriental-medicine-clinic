@@ -225,7 +225,7 @@ export default function Home() {
             <h2 className="mt-4 font-myeongjo text-3xl leading-snug text-ink md:text-4xl">
               체질을 읽는 의사,
               <br />
-              류은서 원장.
+              류은서 원장
             </h2>
             <p className="mt-8 max-w-lg text-base leading-relaxed text-ink-soft">
               사상체질을 평생의 공부로 삼아온 한의학 박사. 광동한방병원
@@ -253,7 +253,7 @@ export default function Home() {
             </span>
             <h2 className="mt-4 font-myeongjo text-3xl leading-snug text-ink md:text-5xl">
               네 가지로 짚어내는,
-              <br />네 가지로 채우는.
+              <br />네 가지로 채우는
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-base leading-relaxed text-ink-soft">
               체질을 먼저 가려내고, 그 결에 맞는 한약·약침·생활처방으로 본래의
@@ -378,7 +378,7 @@ export default function Home() {
             <h2 className="mt-4 font-myeongjo text-3xl leading-snug md:text-5xl">
               북촌 한옥 골목 안의
               <br />
-              조용한 휴식처.
+              조용한 휴식처
             </h2>
           </div>
         </div>
@@ -471,7 +471,7 @@ export default function Home() {
               問 答
             </span>
             <h2 className="mt-3 font-myeongjo text-2xl leading-snug text-ink md:text-3xl">
-              자주 묻는 질문.
+              자주 묻는 질문
             </h2>
           </div>
 
@@ -492,7 +492,7 @@ export default function Home() {
               診 療 豫 約
             </span>
             <h2 className="mt-3 font-myeongjo text-2xl leading-snug text-ink md:text-3xl">
-              진료 문의.
+              진료 문의
             </h2>
             <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
               영업일 24시간 이내 카카오톡·전화로 일정 확정을 도와드립니다.

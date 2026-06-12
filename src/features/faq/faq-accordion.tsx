@@ -25,7 +25,7 @@ export function FaqAccordion({ items }: { items: FaqItem[] }) {
                   {item.category}
                 </span>
                 <h3 className="font-myeongjo text-base text-ink md:text-lg">
-                  Q. {item.question}
+                  {item.question}
                 </h3>
               </div>
               <span
