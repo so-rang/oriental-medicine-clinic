@@ -1,26 +1,86 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-hanji: #f5f1e8;
+  --color-hanji-deep: #ece5d3;
+  --color-paper-line: #e5dfd0;
+  --color-ink: #1a1a1a;
+  --color-ink-soft: #6b6b6b;
+  --color-moss: #4a5c3f;
+  --color-moss-deep: #2f4030;
+  --color-vermilion: #b8342a;
+
+  --font-myeongjo: var(--font-myeongjo), "Nanum Myeongjo", "Noto Serif KR", serif;
+  --font-sans: var(--font-pretendard), Pretendard, "Pretendard Variable", system-ui, sans-serif;
+
+  --breakpoint-xs: 24rem;
+
+  --animate-fade-in: fade-in 0.8s ease-out forwards;
+  --animate-rise: rise 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+html,
+body {
+  background: var(--color-hanji);
+  color: var(--color-ink);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "ss02";
+  background-image:
+    radial-gradient(rgba(26, 26, 26, 0.025) 1px, transparent 1px),
+    radial-gradient(rgba(26, 26, 26, 0.018) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1.5px 1.5px;
+}
+
+.font-myeongjo {
+  font-family: var(--font-myeongjo);
+  letter-spacing: -0.01em;
+}
+
+.paper-divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-paper-line) 20%,
+    var(--color-paper-line) 80%,
+    transparent
+  );
+}
+
+.ink-seal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  background: var(--color-vermilion);
+  color: var(--color-hanji);
+  font-family: var(--font-myeongjo);
+  font-size: 1.125rem;
+  border-radius: 0.125rem;
+  transform: rotate(-3deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
