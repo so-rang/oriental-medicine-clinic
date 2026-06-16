@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "별채 한의원 — 한옥 별채에서 체질을 짚다";
+export const alt = "별채 한의원 — 체질에 맞춰, 단정한 모던 한방";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -17,91 +17,76 @@ export default async function OpengraphImage() {
           justifyContent: "space-between",
           padding: "80px",
           background:
-            "linear-gradient(135deg, #f5f1e8 0%, #ece5d3 60%, #c4b896 100%)",
+            "linear-gradient(135deg, #faf8f3 0%, #f1ece0 60%, #dfe5d8 100%)",
           fontFamily: "serif",
-          color: "#1a1a1a",
+          color: "#1f2421",
           position: "relative",
         }}
       >
-        {/* Seal */}
+        {/* Seal — soft sage disc */}
         <div
           style={{
             position: "absolute",
-            top: 80,
+            top: 76,
             right: 80,
-            width: 92,
-            height: 92,
-            background: "#b8342a",
-            color: "#f5f1e8",
+            width: 96,
+            height: 96,
+            background: "#2e4034",
+            color: "#faf8f3",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            fontSize: 56,
-            transform: "rotate(-3deg)",
-            borderRadius: 4,
+            fontSize: 50,
+            borderRadius: 9999,
           }}
         >
           別
         </div>
 
-        {/* Top label */}
         <div style={{ display: "flex", flexDirection: "column" }}>
-          <span
-            style={{
-              fontSize: 24,
-              letterSpacing: 12,
-              color: "#4a5c3f",
-            }}
-          >
-            別 宅 韓 醫 院
+          <span style={{ fontSize: 22, letterSpacing: 8, color: "#8a9a82" }}>
+            북촌 · 모던 한방
           </span>
           <span
             style={{
               fontSize: 16,
-              letterSpacing: 10,
-              color: "#6b6b6b",
-              marginTop: 6,
+              letterSpacing: 6,
+              color: "#6f6b61",
+              marginTop: 8,
             }}
           >
             BYULCHAE KOREAN MEDICINE CLINIC
           </span>
         </div>
 
-        {/* Hero text */}
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span
-            style={{
-              fontSize: 110,
-              lineHeight: 1.1,
-              fontWeight: 700,
-              color: "#1a1a1a",
-            }}
+            style={{ fontSize: 112, lineHeight: 1.05, fontWeight: 700 }}
           >
-            한옥 별채에서
+            체질에 맞춰,
           </span>
           <span
             style={{
-              fontSize: 110,
-              lineHeight: 1.1,
+              fontSize: 112,
+              lineHeight: 1.05,
               fontWeight: 700,
-              color: "#4a5c3f",
+              color: "#2e4034",
             }}
           >
-            체질을 짚다.
+            단정하게.
           </span>
         </div>
 
-        {/* Footer */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "flex-end",
             fontSize: 22,
-            color: "#6b6b6b",
+            color: "#6f6b61",
           }}
         >
-          <span>북촌로 11길 · 사상체질 한의원</span>
+          <span>사상체질 진단 · 맞춤 한약 · 약침</span>
           <span>byulchae.vercel.app</span>
         </div>
       </div>

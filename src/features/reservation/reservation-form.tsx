@@ -39,11 +39,9 @@ export function ReservationForm() {
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="border border-paper-line bg-hanji-deep/40 px-8 py-16 text-center"
+        className="rounded-2xl bg-sage-soft/40 px-8 py-16 text-center ring-1 ring-paper-line"
       >
-        <span className="font-myeongjo text-sm tracking-[0.4em] text-moss">
-          受 付 完 了
-        </span>
+        <span className="text-xs tracking-[0.3em] text-sage">受付完了</span>
         <h2 className="mt-6 font-myeongjo text-3xl text-ink md:text-4xl">
           예약 요청이 접수되었습니다
         </h2>
@@ -61,7 +59,7 @@ export function ReservationForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-10">
       {presetConstitution && (
-        <div className="border border-moss/30 bg-moss/5 px-6 py-4 text-sm text-ink-soft">
+        <div className="rounded-xl border border-moss/20 bg-sage-soft/30 px-6 py-4 text-sm text-ink-soft">
           1분 체질 진단 결과 <strong className="text-moss">{presetConstitution}</strong>
           를 함께 전달드립니다.
         </div>
@@ -169,7 +167,7 @@ export function ReservationForm() {
 
       <button
         type="submit"
-        className="w-full bg-moss px-8 py-4 font-myeongjo text-base text-hanji transition-colors hover:bg-moss-deep"
+        className="w-full rounded-full bg-moss px-8 py-4 text-base font-medium text-hanji shadow-sm transition-all hover:-translate-y-0.5 hover:bg-moss-deep hover:shadow-md"
       >
         예약 요청 보내기 →
       </button>
@@ -179,15 +177,17 @@ export function ReservationForm() {
           width: 100%;
           background: var(--color-hanji);
           border: 1px solid var(--color-paper-line);
+          border-radius: 0.75rem;
           padding: 0.875rem 1rem;
           font-family: var(--font-sans);
           font-size: 1rem;
           color: var(--color-ink);
-          transition: border-color 0.2s;
+          transition: border-color 0.2s, box-shadow 0.2s;
         }
         .form-input:focus {
           outline: none;
           border-color: var(--color-moss);
+          box-shadow: 0 0 0 3px var(--color-sage-soft);
         }
         .form-input::placeholder { color: #a8a194; }
       `}</style>

@@ -1,22 +1,33 @@
 @import "tailwindcss";
 
 @theme {
-  --color-hanji: #f5f1e8;
-  --color-hanji-deep: #ece5d3;
-  --color-paper-line: #e5dfd0;
-  --color-ink: #1a1a1a;
-  --color-ink-soft: #6b6b6b;
-  --color-moss: #4a5c3f;
-  --color-moss-deep: #2f4030;
-  --color-vermilion: #b8342a;
+  /* ── Surface ── warm ivory wellness base */
+  --color-hanji: #faf8f3;
+  --color-hanji-deep: #f1ece0;
+  --color-paper-line: #e7e1d4;
+
+  /* ── Ink ── warm near-black + soft taupe */
+  --color-ink: #1f2421;
+  --color-ink-soft: #6f6b61;
+
+  /* ── Green ── deep hanbang green + sage family */
+  --color-moss: #2e4034;
+  --color-moss-deep: #1f2e25;
+  --color-sage: #8a9a82;
+  --color-sage-soft: #dfe5d8;
+
+  /* accent kept for legacy refs, retuned to a quiet clay */
+  --color-vermilion: #b8654a;
 
   --font-myeongjo: var(--font-myeongjo), "Nanum Myeongjo", "Noto Serif KR", serif;
   --font-sans: var(--font-pretendard), Pretendard, "Pretendard Variable", system-ui, sans-serif;
 
   --breakpoint-xs: 24rem;
 
-  --animate-fade-in: fade-in 0.8s ease-out forwards;
-  --animate-rise: rise 1s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+  --radius: 0.875rem;
+
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-rise: rise 0.9s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
 }
 
 @keyframes fade-in {
@@ -25,7 +36,7 @@
 }
 
 @keyframes rise {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(18px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -37,17 +48,29 @@ body {
 
 body {
   font-family: var(--font-sans);
-  font-feature-settings: "ss01", "ss02";
-  background-image:
-    radial-gradient(rgba(26, 26, 26, 0.025) 1px, transparent 1px),
-    radial-gradient(rgba(26, 26, 26, 0.018) 1px, transparent 1px);
-  background-size: 3px 3px, 7px 7px;
-  background-position: 0 0, 1.5px 1.5px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
+::selection {
+  background: var(--color-sage-soft);
+  color: var(--color-moss-deep);
+}
+
+/* Display serif — for large headlines only, near-normal tracking */
 .font-myeongjo {
   font-family: var(--font-myeongjo);
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  font-feature-settings: "ss01";
+}
+
+/* hairline label used above headings — quieter than before */
+.eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-sage);
+  font-weight: 600;
 }
 
 .paper-divider {
@@ -55,24 +78,32 @@ body {
   background: linear-gradient(
     to right,
     transparent,
-    var(--color-paper-line) 20%,
-    var(--color-paper-line) 80%,
+    var(--color-paper-line) 15%,
+    var(--color-paper-line) 85%,
     transparent
   );
 }
 
+/* Modern reinterpreted seal — soft sage disc, no harsh red, no rotation */
 .ink-seal {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  background: var(--color-vermilion);
-  color: var(--color-hanji);
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--color-sage-soft);
+  color: var(--color-moss);
   font-family: var(--font-myeongjo);
-  font-size: 1.125rem;
-  border-radius: 0.125rem;
-  transform: rotate(-3deg);
+  font-size: 1.1rem;
+  border-radius: 9999px;
+}
+
+/* Reusable soft card */
+.card {
+  background: #ffffff;
+  border: 1px solid var(--color-paper-line);
+  border-radius: var(--radius);
+  box-shadow: 0 1px 2px rgba(31, 36, 33, 0.03), 0 12px 32px -24px rgba(31, 36, 33, 0.25);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -82,5 +113,6 @@ body {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

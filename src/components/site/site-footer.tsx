@@ -13,7 +13,7 @@ const SECTIONS = [
   {
     title: "별채",
     items: [
-      { href: "/#about", label: "소개" },
+      { href: "/#about", label: "원장 소개" },
       { href: "/#quiz", label: "1분 체질 진단" },
       { href: "/#faq", label: "자주 묻는 질문" },
       { href: "/admin", label: "콘텐츠 관리" },
@@ -30,43 +30,41 @@ const SECTIONS = [
 
 export function SiteFooter() {
   return (
-    <footer className="mt-32 border-t border-paper-line bg-hanji-deep/40">
+    <footer className="border-t border-paper-line bg-white">
       <div className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-4">
           <div>
-            <div className="flex items-baseline gap-2">
-              <span className="font-myeongjo text-2xl text-ink">別宅</span>
-              <span className="font-myeongjo text-base text-ink-soft">
-                별채 한의원
+            <div className="flex items-center gap-2.5">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-moss font-myeongjo text-sm text-hanji">
+                別
               </span>
+              <span className="font-myeongjo text-lg text-ink">별채 한의원</span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-ink-soft">
-              일상에서 한 걸음 떨어진
+            <p className="mt-5 text-sm leading-relaxed text-ink-soft">
+              체질에 맞춰, 단정하게.
               <br />
-              한옥 별채에서 체질을 짚다.
+              북촌의 모던 한방.
             </p>
             <p className="mt-6 text-xs leading-relaxed text-ink-soft/80">
               서울 종로구 북촌로 11길 14
               <br />
-              02-720-0000
+              02-720-0000 · @별채한의원
               <br />
               평일 10:00–20:00 · 토 10:00–16:00
-              <br />
-              일·공휴일 휴진
             </p>
           </div>
 
           {SECTIONS.map((section) => (
             <div key={section.title}>
-              <h3 className="font-myeongjo text-base text-ink">
+              <h3 className="text-sm font-semibold text-moss">
                 {section.title}
               </h3>
-              <ul className="mt-4 space-y-2 text-sm text-ink-soft">
+              <ul className="mt-4 space-y-2.5 text-sm text-ink-soft">
                 {section.items.map((item) => (
                   <li key={item.href}>
                     <Link
                       href={item.href}
-                      className="transition-colors hover:text-ink"
+                      className="transition-colors hover:text-moss"
                     >
                       {item.label}
                     </Link>
@@ -77,7 +75,7 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="paper-divider mt-12" />
+        <div className="paper-divider mt-14" />
 
         <div className="mt-8 flex flex-col gap-2 text-xs text-ink-soft/70 md:flex-row md:justify-between">
           <p>

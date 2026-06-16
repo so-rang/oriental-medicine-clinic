@@ -124,13 +124,13 @@ export function QuizFlow() {
             <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
               <button
                 onClick={startQuiz}
-                className="inline-flex items-center justify-center gap-2 bg-moss px-10 py-4 font-myeongjo text-base text-hanji transition-colors hover:bg-moss-deep"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-moss px-10 py-4 text-base font-medium text-hanji shadow-sm transition-all hover:-translate-y-0.5 hover:bg-moss-deep hover:shadow-md"
               >
                 체질 진단하기 →
               </button>
               <Link
                 href="#diagnosis"
-                className="font-myeongjo text-sm text-moss underline-offset-4 hover:underline"
+                className="text-sm text-moss underline-offset-4 hover:underline"
               >
                 정식 체질진단 진료 보기
               </Link>
@@ -198,8 +198,8 @@ function QuestionView({
             key={option.label}
             onClick={() => onSelect(option)}
             className={cn(
-              "group flex flex-col gap-1 border border-paper-line bg-hanji px-6 py-5 text-left transition-colors",
-              "hover:border-moss hover:bg-hanji-deep/50"
+              "group flex flex-col gap-1 rounded-2xl border border-paper-line bg-white px-6 py-5 text-left transition-all",
+              "hover:-translate-y-0.5 hover:border-moss hover:shadow-md"
             )}
           >
             <span className="font-myeongjo text-lg text-ink">
@@ -224,10 +224,10 @@ function ResultView({
 }) {
   return (
     <div>
-      <div className="border border-paper-line bg-hanji-deep/40 p-8 md:p-12">
+      <div className="rounded-3xl bg-sage-soft/40 p-8 ring-1 ring-paper-line md:p-12">
         <div className="flex items-start justify-between gap-6">
           <div>
-            <span className="font-myeongjo text-xs tracking-[0.4em] text-moss">
+            <span className="text-xs tracking-[0.3em] text-sage">
               {result.hanja}
             </span>
             <h2 className="mt-4 font-myeongjo text-4xl leading-tight text-ink md:text-6xl">
@@ -275,12 +275,12 @@ function ResultView({
         <h3 className="font-myeongjo text-sm tracking-[0.3em] text-moss">
           류은서 원장의 추천 진료
         </h3>
-        <div className="mt-6 grid gap-px bg-paper-line md:grid-cols-2">
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
           {result.recommended.map((rec) => (
             <Link
               key={rec.href}
               href={rec.href}
-              className="group flex flex-col gap-3 bg-hanji p-6 transition-colors hover:bg-hanji-deep/50"
+              className="card group flex flex-col gap-3 p-6 transition-all hover:-translate-y-0.5 hover:shadow-md"
             >
               <h4 className="font-myeongjo text-xl text-ink">{rec.title}</h4>
               <p className="text-sm leading-relaxed text-ink-soft">
@@ -308,7 +308,7 @@ function ResultView({
           </LinkButton>
           <button
             onClick={onRestart}
-            className="inline-flex items-center justify-center gap-2 border border-ink/30 px-6 py-3 font-myeongjo text-base text-ink hover:border-ink"
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-moss/30 px-7 py-3.5 text-base font-medium text-moss transition-colors hover:border-moss hover:bg-moss/5"
           >
             다시 답해보기
           </button>
