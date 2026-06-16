@@ -108,14 +108,6 @@ const CAREER = [
   "척추·관절 통증 · 한약 클리닉",
 ];
 
-const PRICES = [
-  { item: "추나요법", price: "건강보험 적용 (본인부담 1~3만원)" },
-  { item: "침·뜸·부황", price: "건강보험 적용" },
-  { item: "약침", price: "1회 1만~3만원" },
-  { item: "한약 (첩약 20일분)", price: "15만~35만원" },
-  { item: "공진단", price: "1환 3만~5만원" },
-];
-
 const HOURS = [
   { day: "월·화·목·금", time: "10:00 – 20:00", note: "야간진료" },
   { day: "수요일", time: "10:00 – 14:00", note: "" },
@@ -353,42 +345,23 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 진료비 · 진료시간 ──────────────────────────────── */}
+      {/* ── 진료 시간 ──────────────────────────────────────── */}
       <section id="info" className="scroll-mt-20 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="max-w-2xl">
-            <SectionLabel ko="진료비 · 진료시간" en="Info" />
+            <SectionLabel ko="진료 시간" en="Hours" />
             <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-4xl">
-              미리 알고 오시도록
+              퇴근길에도, 토요일에도
             </h2>
+            <p className="mt-6 text-base leading-relaxed text-ink-soft">
+              평일은 저녁 8시까지 야간진료, 토요일은 오전 진료를 합니다. 예약
+              후 방문하시면 기다림 없이 진료받으실 수 있습니다.
+            </p>
           </Reveal>
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {/* 비급여 안내 */}
             <Reveal className="card p-8 md:p-10">
-              <h3 className="font-myeongjo text-xl text-ink">진료비 안내</h3>
-              <dl className="mt-6 divide-y divide-paper-line">
-                {PRICES.map((p) => (
-                  <div
-                    key={p.item}
-                    className="flex items-baseline justify-between gap-4 py-3"
-                  >
-                    <dt className="text-sm text-ink">{p.item}</dt>
-                    <dd className="text-right text-sm text-ink-soft">
-                      {p.price}
-                    </dd>
-                  </div>
-                ))}
-              </dl>
-              <p className="mt-5 text-xs leading-relaxed text-ink-soft/80">
-                ※ 비급여 항목은 의료기관마다 다를 수 있으며, 정확한 금액은
-                상담 시 안내해 드립니다.
-              </p>
-            </Reveal>
-
-            {/* 진료시간 + 예약 */}
-            <Reveal delay={0.08} className="card p-8 md:p-10">
-              <h3 className="font-myeongjo text-xl text-ink">진료시간</h3>
+              <h3 className="font-myeongjo text-xl text-ink">진료 시간</h3>
               <dl className="mt-6 space-y-2.5 text-sm">
                 {HOURS.map((h) => (
                   <div key={h.day} className="flex items-center justify-between gap-3">
@@ -404,18 +377,27 @@ export default function Home() {
                   </div>
                 ))}
               </dl>
-              <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 border-t border-paper-line pt-6 text-sm">
-                <span className="text-ink-soft">
-                  전화 <span className="font-medium text-ink">02-720-0000</span>
-                </span>
-                <span className="text-ink-soft">
-                  카카오 <span className="font-medium text-ink">@별채한의원</span>
-                </span>
-              </div>
-              <p className="mt-4 text-xs text-ink-soft/80">
-                평일 야간(~20시)·토요일 진료로 직장인도 편하게 내원하실 수
-                있습니다.
+            </Reveal>
+
+            <Reveal delay={0.08} className="card flex flex-col justify-center p-8 md:p-10">
+              <h3 className="font-myeongjo text-xl text-ink">예약·문의</h3>
+              <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+                전화나 카카오톡으로 편하게 문의하세요. 교통사고 치료는 사고
+                접수번호만 알려주시면 보험 처리를 도와드립니다.
               </p>
+              <div className="mt-6 space-y-2 text-sm">
+                <p className="text-ink-soft">
+                  전화 <span className="font-medium text-ink">02-720-0000</span>
+                </p>
+                <p className="text-ink-soft">
+                  카카오 <span className="font-medium text-ink">@별채한의원</span>
+                </p>
+              </div>
+              <div className="mt-7">
+                <LinkButton href="#reservation" size="sm">
+                  온라인 예약하기
+                </LinkButton>
+              </div>
             </Reveal>
           </div>
         </div>

@@ -101,7 +101,7 @@ export function Hero() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[1.75rem] bg-hanji-deep shadow-[0_40px_80px_-40px_rgba(31,46,37,0.45)]">
             <Image
               src="/images/hero-clinic.jpg"
-              alt="한의원 진료실의 원목 한약장 — 따뜻한 햇살이 드는 진료 공간"
+              alt="한의원 탕약방 — 원목 한약장과 조제대의 황동 저울·약연·약재"
               fill
               priority
               sizes="(max-width: 768px) 100vw, 45vw"

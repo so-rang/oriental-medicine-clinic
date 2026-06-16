@@ -6,7 +6,7 @@ const NAV = [
   { href: "/#treatments", label: "진료 안내" },
   { href: "/#insurance", label: "보험 안내" },
   { href: "/#about", label: "원장 소개" },
-  { href: "/#info", label: "진료비·시간" },
+  { href: "/#info", label: "진료 시간" },
   { href: "/#location", label: "오시는 길" },
 ];
 
