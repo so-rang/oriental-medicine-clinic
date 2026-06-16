@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 
 import { Hero } from "@/components/site/hero";
+import { Reveal } from "@/components/site/reveal";
 import { LinkButton } from "@/components/ui/button";
 import { FAQ } from "@/features/faq/data";
 import { FaqAccordion } from "@/features/faq/faq-accordion";
@@ -99,6 +100,13 @@ const TRANSPORT = [
   { title: "주차", body: "재동·가회동 공영주차장 2시간 지원" },
 ];
 
+const SYMPTOMS = [
+  { ko: "무거운 아침", en: "Fatigue" },
+  { ko: "깨지는 수면", en: "Sleep" },
+  { ko: "더부룩한 속", en: "Digestion" },
+  { ko: "굳은 목·어깨", en: "Tension" },
+];
+
 function SectionLabel({ ko, en }: { ko: string; en: string }) {
   return (
     <span className="eyebrow inline-flex items-center gap-2">
@@ -114,13 +122,39 @@ export default function Home() {
       <span id="top" />
       <Hero />
 
+      {/* ── 공감 스트립 ───────────────────────────────────── */}
+      <section className="border-t border-paper-line bg-white py-10 md:py-12">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+            <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
+              이런 하루를 반복하고 있다면,
+              <br className="hidden md:block" />
+              한 번쯤 <span className="text-moss">체질</span>을 들여다볼
+              때입니다.
+            </p>
+            <div className="grid flex-1 grid-cols-2 gap-3 sm:grid-cols-4 md:max-w-2xl">
+              {SYMPTOMS.map((s) => (
+                <div
+                  key={s.en}
+                  className="rounded-2xl border border-paper-line bg-hanji px-4 py-4 text-center"
+                >
+                  <p className="break-keep font-myeongjo text-sm text-ink md:text-base">
+                    {s.ko}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ── 체질 진단 (주인공) ───────────────────────────── */}
       <section
         id="quiz"
         className="scroll-mt-20 border-y border-paper-line bg-white py-20 md:py-28"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <div className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-14">
+          <Reveal className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-14">
             <div>
               <SectionLabel ko="사상체질" en="Constitution" />
               <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-5xl">
@@ -143,10 +177,10 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-          </div>
+          </Reveal>
 
           {/* 4 constitutions */}
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {CONSTITUTION_ORDER.map((key) => {
               const c = RESULTS[key];
               return (
@@ -171,10 +205,10 @@ export default function Home() {
                 </div>
               );
             })}
-          </div>
+          </Reveal>
 
           {/* Interactive quiz */}
-          <div className="card mt-12 px-6 py-12 md:px-16 md:py-16">
+          <Reveal className="card mt-12 px-6 py-12 md:px-16 md:py-16">
             <div className="text-center">
               <h3 className="font-myeongjo text-2xl text-ink md:text-3xl">
                 1분 체질 진단
@@ -187,29 +221,50 @@ export default function Home() {
             <div className="mt-10">
               <QuizFlow />
             </div>
-          </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── 분위기 밴드 · 약장 ────────────────────────────── */}
+      <section aria-hidden className="relative h-[44vh] min-h-[320px] w-full overflow-hidden">
+        <Image
+          src="/images/apothecary.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-moss-deep/35 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-6 pb-10">
+          <p className="font-myeongjo text-xl leading-snug text-hanji drop-shadow-sm md:text-3xl">
+            한 사람의 결에 맞춰,
+            <br />
+            한 첩씩 짓습니다.
+          </p>
         </div>
       </section>
 
       {/* ── 진료 ──────────────────────────────────────────── */}
       <section id="treatments" className="scroll-mt-20 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <SectionLabel ko="진료 안내" en="Treatments" />
             <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-5xl">
               체질을 짚고,
               <br />
               그 결에 맞춰 채웁니다
             </h2>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {TREATMENTS.map((t) => (
-              <article
+            {TREATMENTS.map((t, i) => (
+              <Reveal
                 key={t.id}
-                id={t.id}
+                delay={(i % 2) * 0.1}
                 className="card group scroll-mt-24 overflow-hidden"
+                as="div"
               >
+                <article id={t.id} className="scroll-mt-24">
                 <div className="relative aspect-[16/10] overflow-hidden bg-hanji-deep">
                   <Image
                     src={t.image}
@@ -243,9 +298,36 @@ export default function Home() {
                     ))}
                   </ul>
                 </div>
-              </article>
+                </article>
+              </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ── 분위기 밴드 · 철학 인용 (차) ──────────────────── */}
+      <section className="relative w-full overflow-hidden bg-ink">
+        <Image
+          src="/images/quote-tea.jpg"
+          alt="김이 피어오르는 한방차 한 잔"
+          fill
+          sizes="100vw"
+          className="object-cover opacity-70"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
+        <div className="relative mx-auto flex min-h-[60vh] max-w-6xl items-center px-6 py-24">
+          <Reveal className="max-w-xl">
+            <span className="eyebrow !text-sage">哲學 · 진료 철학</span>
+            <p className="mt-6 font-myeongjo text-3xl leading-[1.4] text-hanji md:text-4xl">
+              증상을 쫓기 전에,
+              <br />
+              그 사람의 결을 먼저 읽습니다.
+            </p>
+            <p className="mt-6 max-w-md leading-relaxed text-hanji/70">
+              같은 피로도 체질에 따라 다르게 풀립니다. 별채는 빠른 처방보다
+              정확한 해석을 먼저 둡니다.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -308,14 +390,14 @@ export default function Home() {
       {/* ── 위치 ──────────────────────────────────────────── */}
       <section id="location" className="scroll-mt-20 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="max-w-2xl">
+          <Reveal className="max-w-2xl">
             <SectionLabel ko="오시는 길" en="Location" />
             <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-5xl">
               북촌 골목 안,
               <br />
               조용한 진료실
             </h2>
-          </div>
+          </Reveal>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 md:items-stretch">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-hanji-deep md:aspect-auto">
@@ -391,22 +473,61 @@ export default function Home() {
           }}
         />
         <div className="mx-auto max-w-3xl px-6">
-          <div className="text-center">
+          <Reveal className="text-center">
             <SectionLabel ko="자주 묻는 질문" en="FAQ" />
             <h2 className="mt-5 font-myeongjo text-2xl leading-tight text-ink md:text-4xl">
               궁금한 점을 먼저 짚어드려요
             </h2>
-          </div>
+          </Reveal>
           <div className="mt-10">
             <FaqAccordion items={FAQ} />
           </div>
         </div>
       </section>
 
+      {/* ── 클로징 밴드 · 상담 코너 ───────────────────────── */}
+      <section className="relative w-full overflow-hidden">
+        <Image
+          src="/images/nook.jpg"
+          alt="따뜻한 햇살이 드는 모던 한방 상담 코너"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/40 to-ink/20" />
+        <div className="relative mx-auto flex min-h-[56vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
+          <Reveal>
+            <span className="eyebrow !text-sage">예약 안내</span>
+            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-hanji md:text-5xl">
+              차 한 잔의 거리에서,
+              <br />
+              체질부터 시작해요
+            </h2>
+            <p className="mx-auto mt-6 max-w-md leading-relaxed text-hanji/75">
+              퇴근길에 들러 천천히 짚어보는 70분. 먼저 1분 진단으로 가볍게
+              시작해도 좋습니다.
+            </p>
+            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
+              <LinkButton href="#reservation" size="lg">
+                진료 예약하기
+              </LinkButton>
+              <LinkButton
+                href="#quiz"
+                variant="outline"
+                size="lg"
+                className="border-hanji/40 !text-hanji hover:border-hanji hover:!bg-hanji/10"
+              >
+                1분 체질 진단 →
+              </LinkButton>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ── 예약 ──────────────────────────────────────────── */}
       <section id="reservation" className="scroll-mt-20 py-20 md:py-28">
         <div className="mx-auto max-w-2xl px-6">
-          <div className="text-center">
+          <Reveal className="text-center">
             <SectionLabel ko="진료 예약" en="Reservation" />
             <h2 className="mt-5 font-myeongjo text-2xl leading-tight text-ink md:text-4xl">
               진료 문의 · 예약
@@ -414,7 +535,7 @@ export default function Home() {
             <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink-soft">
               영업일 기준 24시간 이내 카카오톡·전화로 회신드립니다.
             </p>
-          </div>
+          </Reveal>
 
           <div className="card mt-10 p-7 md:p-10">
             <Suspense
