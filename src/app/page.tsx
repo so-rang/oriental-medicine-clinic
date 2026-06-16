@@ -331,15 +331,6 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-
-              <div className="mt-9">
-                <LinkButton
-                  href="#reservation"
-                  className="bg-hanji !text-moss hover:bg-hanji-deep"
-                >
-                  진료 예약하기
-                </LinkButton>
-              </div>
             </div>
           </div>
         </div>
@@ -442,12 +433,6 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-
-              <div className="mt-8 border-t border-paper-line pt-6">
-                <LinkButton href="#reservation" size="sm">
-                  진료 예약하기
-                </LinkButton>
-              </div>
             </div>
           </div>
         </div>
@@ -479,45 +464,6 @@ export default function Home() {
           <div className="mt-10">
             <FaqAccordion items={FAQ} />
           </div>
-        </div>
-      </section>
-
-      {/* ── 클로징 밴드 ───────────────────────────────────── */}
-      <section className="relative w-full overflow-hidden">
-        <Image
-          src="/images/nook.jpg"
-          alt="따뜻한 햇살이 드는 한의원 상담 공간"
-          fill
-          sizes="100vw"
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/40 to-ink/20" />
-        <div className="relative mx-auto flex min-h-[52vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
-          <Reveal>
-            <span className="eyebrow !text-sage">예약 안내</span>
-            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-hanji md:text-5xl">
-              오늘의 통증을
-              <br />
-              내일로 넘기지 마세요
-            </h2>
-            <p className="mx-auto mt-6 max-w-md leading-relaxed text-hanji/75">
-              전화 한 통, 또는 아래 양식으로 편하게 예약하세요. 평일 야간과
-              토요일에도 진료합니다.
-            </p>
-            <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <LinkButton href="tel:0227200000" size="lg">
-                전화 예약 02-720-0000
-              </LinkButton>
-              <LinkButton
-                href="#reservation"
-                variant="outline"
-                size="lg"
-                className="border-hanji/40 !text-hanji hover:border-hanji hover:!bg-hanji/10"
-              >
-                온라인 예약 →
-              </LinkButton>
-            </div>
-          </Reveal>
         </div>
       </section>
 
