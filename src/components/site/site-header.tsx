@@ -3,11 +3,11 @@ import Link from "next/link";
 import { LinkButton } from "@/components/ui/button";
 
 const NAV = [
-  { href: "/#quiz", label: "체질 진단" },
-  { href: "/#treatments", label: "진료" },
+  { href: "/#treatments", label: "진료 안내" },
+  { href: "/#insurance", label: "보험 안내" },
   { href: "/#about", label: "원장 소개" },
+  { href: "/#info", label: "진료비·시간" },
   { href: "/#location", label: "오시는 길" },
-  { href: "/#faq", label: "자주 묻는 질문" },
 ];
 
 export function SiteHeader() {

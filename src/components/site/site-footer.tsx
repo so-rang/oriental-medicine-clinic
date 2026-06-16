@@ -4,19 +4,19 @@ const SECTIONS = [
   {
     title: "진료",
     items: [
-      { href: "/#diagnosis", label: "사상체질 진단" },
-      { href: "/#herbal", label: "맞춤 한약" },
-      { href: "/#pharmacopuncture", label: "약침" },
-      { href: "/#sleep-digestion", label: "수면·소화 클리닉" },
+      { href: "/#pain", label: "척추·관절 통증" },
+      { href: "/#accident", label: "교통사고 후유증" },
+      { href: "/#diet", label: "한방 다이어트" },
+      { href: "/#herbal", label: "한약·보약" },
     ],
   },
   {
-    title: "별채",
+    title: "안내",
     items: [
+      { href: "/#insurance", label: "보험 안내" },
       { href: "/#about", label: "원장 소개" },
-      { href: "/#quiz", label: "1분 체질 진단" },
+      { href: "/#info", label: "진료비·진료시간" },
       { href: "/#faq", label: "자주 묻는 질문" },
-      { href: "/admin", label: "콘텐츠 관리" },
     ],
   },
   {
@@ -41,16 +41,16 @@ export function SiteFooter() {
               <span className="font-myeongjo text-lg text-ink">별채 한의원</span>
             </div>
             <p className="mt-5 text-sm leading-relaxed text-ink-soft">
-              체질에 맞춰, 단정하게.
+              추나·교통사고·한약,
               <br />
-              북촌의 모던 한방.
+              북촌의 동네 한의원.
             </p>
             <p className="mt-6 text-xs leading-relaxed text-ink-soft/80">
               서울 종로구 북촌로 11길 14
               <br />
               02-720-0000 · @별채한의원
               <br />
-              평일 10:00–20:00 · 토 10:00–16:00
+              평일 10:00–20:00 · 토 09:00–14:00
             </p>
           </div>
 

@@ -5,11 +5,11 @@ import { useSearchParams } from "next/navigation";
 import { useState, type FormEvent } from "react";
 
 const TREATMENTS = [
-  "사상체질 진단 (첫 방문)",
-  "맞춤 한약",
-  "약침",
-  "수면·소화 클리닉",
-  "재진",
+  "척추·관절 통증 (추나)",
+  "교통사고 후유증",
+  "한방 다이어트",
+  "한약·보약",
+  "기타 / 상담 후 결정",
 ];
 
 const CONSTITUTION_LABEL: Record<string, string> = {
@@ -133,7 +133,7 @@ export function ReservationForm() {
         <textarea
           name="message"
           rows={5}
-          placeholder="예) 6개월 이상 아침마다 몸이 무겁고, 야근 후 소화가 잘 되지 않습니다."
+          placeholder="예) 2주 전부터 허리가 아프고 다리가 저립니다. / 지난주 교통사고 후 목이 뻐근합니다."
           className="form-input resize-none"
           defaultValue={
             constitutionKey

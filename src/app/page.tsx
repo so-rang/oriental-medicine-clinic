@@ -7,104 +7,126 @@ import { Reveal } from "@/components/site/reveal";
 import { LinkButton } from "@/components/ui/button";
 import { FAQ } from "@/features/faq/data";
 import { FaqAccordion } from "@/features/faq/faq-accordion";
-import { RESULTS, type Constitution } from "@/features/quiz/data";
-import { QuizFlow } from "@/features/quiz/quiz-flow";
 import { ReservationForm } from "@/features/reservation/reservation-form";
 
-const CONSTITUTION_ORDER: Constitution[] = [
-  "taeyang",
-  "taeum",
-  "soyang",
-  "soeum",
+const BENEFITS = [
+  "건강보험 추나요법",
+  "자동차보험 교통사고",
+  "야간진료 ~20:00",
+  "전용 주차 안내",
 ];
 
 const TREATMENTS = [
   {
-    id: "diagnosis",
-    title: "사상체질 진단",
-    hanja: "四象體質",
-    duration: "70분 · 1–2회",
-    image: "/images/tx-diagnosis.jpg",
-    alt: "맥진을 위해 손목을 받침에 올린 손 — 차분한 진단 장면",
+    id: "pain",
+    title: "척추·관절 통증",
+    tag: "건강보험 적용",
+    image: "/images/chuna.jpg",
+    alt: "환자의 등과 어깨에 추나요법을 시행하는 한의사의 손",
     summary:
-      "맥진·설진·문진과 60문항 생활 평가로 네 가지 체질의 결을 가려냅니다. 결과는 리포트와 처방 카드로.",
-    suited: ["처음 내원해 방향을 잡고 싶은 분", "체질에 맞는 식이·운동이 궁금한 분"],
+      "허리·목 디스크, 척추관협착증, 어깨·무릎 통증을 추나요법과 침·약침으로 단계적으로 바로잡습니다.",
+    points: [
+      "추나요법 — 건강보험 연 20회 적용",
+      "침·약침·한약 병행 치료",
+      "허리·목 디스크, 협착증, 오십견",
+    ],
+  },
+  {
+    id: "accident",
+    title: "교통사고 후유증",
+    tag: "자동차보험 100%",
+    image: "/images/recovery.jpg",
+    alt: "회복 케어를 위한 한의원 진료 베드와 따뜻한 진료실",
+    summary:
+      "사고 후 남는 목·허리 통증, 두통, 어지럼을 자동차보험으로 본인부담 없이 침·추나·한약으로 관리합니다.",
+    points: [
+      "자동차보험 적용 — 본인부담 0원",
+      "침·추나·약침·한약·물리치료",
+      "사고 직후부터 후유증까지",
+    ],
+  },
+  {
+    id: "diet",
+    title: "한방 다이어트",
+    tag: "체질 맞춤",
+    image: "/images/tx-herbal.jpg",
+    alt: "체질 맞춤 다이어트 한약에 쓰이는 약재",
+    summary:
+      "체질과 생활습관에 맞춘 다이어트 한약과 1:1 관리로, 무리 없이 빼고 요요를 막는 데 집중합니다.",
+    points: [
+      "체질별 맞춤 한약 처방",
+      "식단·생활 1:1 관리",
+      "요요 방지까지 설계",
+    ],
   },
   {
     id: "herbal",
-    title: "맞춤 한약",
-    hanja: "韓藥處方",
-    duration: "1개월 단위",
-    image: "/images/tx-herbal.jpg",
-    alt: "정갈하게 놓인 한약 파우치와 약재, 호박빛 농축액",
-    summary:
-      "체질 결과를 바탕으로 류은서 원장이 직접 설계해 GMP 탕전실에서 조제하는 탕약·환약·농축액.",
-    suited: ["체질개선을 길게 보는 분", "단기 회복 처방이 필요한 분"],
-  },
-  {
-    id: "pharmacopuncture",
-    title: "약침",
-    hanja: "藥鍼療法",
-    duration: "15–20분 · 주 1–2회",
-    image: "/images/tx-pharma.jpg",
-    alt: "트레이에 놓인 가는 침과 호박빛 약침 앰플",
-    summary:
-      "한약 정제액을 가는 침으로 경혈에 정확히 주입해, 통증과 피로의 회복을 부드럽게 보조합니다.",
-    suited: ["목·어깨·허리 만성통증이 있는 분", "회복 속도를 끌어올리고 싶은 분"],
-  },
-  {
-    id: "sleep-digestion",
-    title: "수면·소화 클리닉",
-    hanja: "睡眠消化",
-    duration: "8주 패키지",
+    title: "한약·보약",
+    tag: "피로·체질·면역",
     image: "/images/tx-sleep.jpg",
-    alt: "대추와 약재를 우린 따뜻한 한방차 한 잔",
+    alt: "체질 보약에 쓰이는 대추·약재를 우린 한방차",
     summary:
-      "직장인 만성피로의 두 축. 한약·약침·생활처방을 묶어 8주 동안 수면과 소화의 리듬을 다듬습니다.",
-    suited: ["야근·회식으로 수면이 깨진 분", "잘 자도 아침이 무거운 분"],
+      "만성피로·기력 저하·소화·수면을 체질에 맞춘 한약으로 다스립니다. GMP 탕전실에서 직접 조제합니다.",
+    points: [
+      "만성피로·기력 저하·면역",
+      "소화·수면 리듬 회복",
+      "GMP 탕전 직접 조제",
+    ],
   },
 ];
 
-const PHILOSOPHY = [
+const INSURANCE = [
   {
-    title: "체질이 먼저, 증상은 그 다음",
-    body: "같은 두통도 태양인과 소음인은 다르게 다스립니다. 증상보다 먼저 체질의 결을 봅니다.",
+    title: "건강보험",
+    line: "추나요법",
+    desc: "근골격계 질환 추나요법은 연 20회 건강보험이 적용됩니다. 본인부담 약 1~3만원.",
   },
   {
-    title: "한 박자 느린 진료실",
-    body: "초진 70분, 재진도 충분한 시간. 진료실의 속도를 늦추는 것이 회복의 시작입니다.",
+    title: "자동차보험",
+    line: "교통사고 후유증",
+    desc: "교통사고 한방치료는 자동차보험이 적용되어 본인부담 없이 받으실 수 있습니다.",
   },
   {
-    title: "직장인의 결에 맞춘 동선",
-    body: "평일 저녁 8시까지, 토요일 오전까지. 카카오 체크인으로 복용 반응을 매주 가볍게.",
+    title: "실손보험",
+    line: "비급여 청구",
+    desc: "약침 등 일부 비급여 항목은 가입 조건에 따라 실손보험 청구가 가능합니다.",
   },
+];
+
+const METHODS = [
+  { name: "추나요법", desc: "틀어진 척추·관절을 손으로 바로잡는 수기 치료" },
+  { name: "침 치료", desc: "경혈을 자극해 통증과 순환을 다스립니다" },
+  { name: "약침", desc: "한약 정제액을 경혈에 주입해 회복을 돕습니다" },
+  { name: "뜸·부황", desc: "따뜻한 자극과 혈류로 굳은 부위를 풀어줍니다" },
+  { name: "한약", desc: "체질·증상에 맞춰 직접 처방, GMP 탕전 조제" },
 ];
 
 const CAREER = [
   "경희대학교 한의학과 졸업",
-  "경희대학교 대학원 사상체질의학 박사",
-  "전) 광동한방병원 임상과장",
-  "대한사상체질의학회 정회원",
+  "대한추나의학회 정회원",
+  "전) 자동차보험 한방진료 임상",
+  "척추·관절 통증 · 한약 클리닉",
+];
+
+const PRICES = [
+  { item: "추나요법", price: "건강보험 적용 (본인부담 1~3만원)" },
+  { item: "침·뜸·부황", price: "건강보험 적용" },
+  { item: "약침", price: "1회 1만~3만원" },
+  { item: "한약 (첩약 20일분)", price: "15만~35만원" },
+  { item: "공진단", price: "1환 3만~5만원" },
 ];
 
 const HOURS = [
-  { day: "월·화·목·금", time: "10:00 – 20:00" },
-  { day: "수요일", time: "10:00 – 14:00" },
-  { day: "토요일", time: "10:00 – 16:00" },
-  { day: "일·공휴일", time: "휴진" },
+  { day: "월·화·목·금", time: "10:00 – 20:00", note: "야간진료" },
+  { day: "수요일", time: "10:00 – 14:00", note: "" },
+  { day: "토요일", time: "09:00 – 14:00", note: "" },
+  { day: "일·공휴일", time: "휴진", note: "" },
 ];
 
 const TRANSPORT = [
   { title: "지하철", body: "3호선 안국역 2번 출구 도보 6분" },
   { title: "버스", body: "안국동·재동초교 정류장 도보 3분" },
   { title: "주차", body: "재동·가회동 공영주차장 2시간 지원" },
-];
-
-const SYMPTOMS = [
-  { ko: "무거운 아침", en: "Fatigue" },
-  { ko: "깨지는 수면", en: "Sleep" },
-  { ko: "더부룩한 속", en: "Digestion" },
-  { ko: "굳은 목·어깨", en: "Tension" },
 ];
 
 function SectionLabel({ ko, en }: { ko: string; en: string }) {
@@ -122,106 +144,116 @@ export default function Home() {
       <span id="top" />
       <Hero />
 
-      {/* ── 공감 스트립 ───────────────────────────────────── */}
-      <section className="border-t border-paper-line bg-white py-10 md:py-12">
+      {/* ── 보험·편의 스트립 ───────────────────────────────── */}
+      <section className="border-t border-paper-line bg-white py-8">
+        <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-x-8 gap-y-3 px-6">
+          {BENEFITS.map((b) => (
+            <span
+              key={b}
+              className="flex items-center gap-2 text-sm font-medium text-ink"
+            >
+              <span className="text-moss">✓</span>
+              {b}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      {/* ── 진료안내 (질환·증상별) ─────────────────────────── */}
+      <section id="treatments" className="scroll-mt-20 py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-            <p className="max-w-xs text-sm leading-relaxed text-ink-soft">
-              이런 하루를 반복하고 있다면,
-              <br className="hidden md:block" />
-              한 번쯤 <span className="text-moss">체질</span>을 들여다볼
-              때입니다.
+          <Reveal className="max-w-2xl">
+            <SectionLabel ko="진료 안내" en="Treatments" />
+            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-5xl">
+              어디가, 어떻게
+              <br />
+              불편하신가요
+            </h2>
+            <p className="mt-6 text-base leading-relaxed text-ink-soft">
+              통증·교통사고 후유증부터 다이어트·보약까지. 증상에 맞는 진료를
+              먼저 확인해 보세요.
             </p>
-            <div className="grid flex-1 grid-cols-2 gap-3 sm:grid-cols-4 md:max-w-2xl">
-              {SYMPTOMS.map((s) => (
-                <div
-                  key={s.en}
-                  className="rounded-2xl border border-paper-line bg-hanji px-4 py-4 text-center"
-                >
-                  <p className="break-keep font-myeongjo text-sm text-ink md:text-base">
-                    {s.ko}
-                  </p>
-                </div>
-              ))}
-            </div>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-2">
+            {TREATMENTS.map((t, i) => (
+              <Reveal
+                key={t.id}
+                delay={(i % 2) * 0.1}
+                className="card group scroll-mt-24 overflow-hidden"
+              >
+                <article id={t.id}>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-hanji-deep">
+                    <Image
+                      src={t.image}
+                      alt={t.alt}
+                      fill
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <span className="absolute left-4 top-4 rounded-full bg-hanji/90 px-3 py-1 text-xs font-semibold text-moss backdrop-blur">
+                      {t.tag}
+                    </span>
+                  </div>
+                  <div className="p-7 md:p-8">
+                    <h3 className="font-myeongjo text-2xl text-ink">
+                      {t.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-ink-soft">
+                      {t.summary}
+                    </p>
+                    <ul className="mt-5 space-y-1.5 border-t border-paper-line pt-5 text-sm text-ink">
+                      {t.points.map((p) => (
+                        <li key={p} className="flex gap-2">
+                          <span className="text-sage">·</span>
+                          {p}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── 체질 진단 (주인공) ───────────────────────────── */}
+      {/* ── 보험 안내 ──────────────────────────────────────── */}
       <section
-        id="quiz"
-        className="scroll-mt-20 border-y border-paper-line bg-white py-20 md:py-28"
+        id="insurance"
+        className="scroll-mt-20 border-y border-paper-line bg-white py-20 md:py-24"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <Reveal className="grid items-center gap-10 md:grid-cols-[1.1fr_0.9fr] md:gap-14">
-            <div>
-              <SectionLabel ko="사상체질" en="Constitution" />
-              <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-5xl">
-                당신의 체질은
-                <br />
-                어디에 가까울까요
-              </h2>
-              <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft">
-                사상체질은 타고난 몸의 결을 넷으로 나눠 봅니다. 결을 알면
-                같은 피로도 다르게 풀 수 있어요. 먼저 1분 진단으로 큰 방향을
-                가늠해 보세요.
-              </p>
-            </div>
-            <div className="relative aspect-[3/2] w-full overflow-hidden rounded-[1.5rem] bg-hanji-deep shadow-[0_30px_60px_-40px_rgba(31,46,37,0.4)]">
-              <Image
-                src="/images/constitution.jpg"
-                alt="네 개의 백자 접시에 담긴 사상체질별 약재 — 깔끔한 오버헤드 정물"
-                fill
-                sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-              />
-            </div>
+          <Reveal className="max-w-2xl">
+            <SectionLabel ko="보험 안내" en="Insurance" />
+            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-4xl">
+              비용 걱정은 덜고,
+              <br />
+              치료에 집중하세요
+            </h2>
           </Reveal>
 
-          {/* 4 constitutions */}
-          <Reveal className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {CONSTITUTION_ORDER.map((key) => {
-              const c = RESULTS[key];
-              return (
-                <div
-                  key={key}
-                  className="card flex flex-col gap-3 p-6 transition-transform duration-200 hover:-translate-y-1"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className="font-myeongjo text-xl text-ink">
-                      {c.name}
-                    </span>
-                    <span className="text-xs tracking-[0.2em] text-sage">
-                      {c.hanja}
-                    </span>
-                  </div>
-                  <p className="font-myeongjo text-sm text-moss">
-                    {c.tagline}
-                  </p>
-                  <p className="text-sm leading-relaxed text-ink-soft">
-                    {c.description.split(".")[0]}.
-                  </p>
-                </div>
-              );
-            })}
-          </Reveal>
-
-          {/* Interactive quiz */}
-          <Reveal className="card mt-12 px-6 py-12 md:px-16 md:py-16">
-            <div className="text-center">
-              <h3 className="font-myeongjo text-2xl text-ink md:text-3xl">
-                1분 체질 진단
-              </h3>
-              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-ink-soft">
-                네 가지 질문이면 큰 결이 보입니다. 결과에 맞는 진료까지
-                안내해 드려요.
-              </p>
-            </div>
-            <div className="mt-10">
-              <QuizFlow />
-            </div>
-          </Reveal>
+          <div className="mt-12 grid gap-4 md:grid-cols-3">
+            {INSURANCE.map((ins, i) => (
+              <Reveal
+                key={ins.title}
+                delay={i * 0.08}
+                className="card flex flex-col gap-2 p-7"
+              >
+                <span className="text-xs font-semibold tracking-wide text-sage">
+                  {ins.line}
+                </span>
+                <h3 className="font-myeongjo text-2xl text-ink">{ins.title}</h3>
+                <p className="mt-1 text-sm leading-relaxed text-ink-soft">
+                  {ins.desc}
+                </p>
+              </Reveal>
+            ))}
+          </div>
+          <p className="mt-6 text-xs text-ink-soft/80">
+            ※ 본인부담금·적용 범위는 가입 보험과 증상에 따라 다를 수 있어
+            내원 시 안내해 드립니다.
+          </p>
         </div>
       </section>
 
@@ -237,114 +269,52 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-t from-moss-deep/35 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 mx-auto max-w-6xl px-6 pb-10">
           <p className="font-myeongjo text-xl leading-snug text-hanji drop-shadow-sm md:text-3xl">
-            한 사람의 결에 맞춰,
+            한 사람의 몸에 맞춰,
             <br />
             한 첩씩 짓습니다.
           </p>
         </div>
       </section>
 
-      {/* ── 진료 ──────────────────────────────────────────── */}
-      <section id="treatments" className="scroll-mt-20 py-20 md:py-28">
+      {/* ── 치료법 ─────────────────────────────────────────── */}
+      <section className="py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="max-w-2xl">
-            <SectionLabel ko="진료 안내" en="Treatments" />
-            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-5xl">
-              체질을 짚고,
+            <SectionLabel ko="치료법" en="Methods" />
+            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-4xl">
+              증상에 맞춰
               <br />
-              그 결에 맞춰 채웁니다
+              치료를 조합합니다
             </h2>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2">
-            {TREATMENTS.map((t, i) => (
-              <Reveal
-                key={t.id}
-                delay={(i % 2) * 0.1}
-                className="card group scroll-mt-24 overflow-hidden"
-                as="div"
-              >
-                <article id={t.id} className="scroll-mt-24">
-                <div className="relative aspect-[16/10] overflow-hidden bg-hanji-deep">
-                  <Image
-                    src={t.image}
-                    alt={t.alt}
-                    fill
-                    sizes="(max-width: 640px) 100vw, 50vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-7 md:p-8">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="font-myeongjo text-2xl text-ink">
-                      {t.title}
-                    </h3>
-                    <span className="text-xs tracking-[0.2em] text-sage">
-                      {t.hanja}
-                    </span>
-                  </div>
-                  <span className="mt-3 inline-block rounded-full bg-sage-soft px-3 py-1 text-xs font-medium text-moss">
-                    {t.duration}
-                  </span>
-                  <p className="mt-5 text-sm leading-relaxed text-ink-soft">
-                    {t.summary}
-                  </p>
-                  <ul className="mt-5 space-y-1.5 border-t border-paper-line pt-5 text-sm text-ink">
-                    {t.suited.map((s) => (
-                      <li key={s} className="flex gap-2">
-                        <span className="text-sage">·</span>
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                </article>
-              </Reveal>
+          <Reveal className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-paper-line bg-paper-line sm:grid-cols-2 lg:grid-cols-5">
+            {METHODS.map((m, i) => (
+              <div key={m.name} className="flex flex-col gap-2 bg-hanji p-6">
+                <span className="font-myeongjo text-sm text-moss">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="font-myeongjo text-lg text-ink">{m.name}</h3>
+                <p className="text-sm leading-relaxed text-ink-soft">
+                  {m.desc}
+                </p>
+              </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 분위기 밴드 · 철학 인용 (차) ──────────────────── */}
-      <section className="relative w-full overflow-hidden bg-ink">
-        <Image
-          src="/images/quote-tea.jpg"
-          alt="김이 피어오르는 한방차 한 잔"
-          fill
-          sizes="100vw"
-          className="object-cover opacity-70"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/45 to-transparent" />
-        <div className="relative mx-auto flex min-h-[60vh] max-w-6xl items-center px-6 py-24">
-          <Reveal className="max-w-xl">
-            <span className="eyebrow !text-sage">哲學 · 진료 철학</span>
-            <p className="mt-6 font-myeongjo text-3xl leading-[1.4] text-hanji md:text-4xl">
-              증상을 쫓기 전에,
-              <br />
-              그 사람의 결을 먼저 읽습니다.
-            </p>
-            <p className="mt-6 max-w-md leading-relaxed text-hanji/70">
-              같은 피로도 체질에 따라 다르게 풀립니다. 별채는 빠른 처방보다
-              정확한 해석을 먼저 둡니다.
-            </p>
           </Reveal>
         </div>
       </section>
 
-      {/* ── 원장 · 철학 ───────────────────────────────────── */}
+      {/* ── 원장 소개 ──────────────────────────────────────── */}
       <section
         id="about"
         className="scroll-mt-20 bg-moss py-20 text-hanji md:py-28"
       >
         <div className="mx-auto max-w-6xl px-6">
-          <div
-            id="doctor"
-            className="grid scroll-mt-24 gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center md:gap-16"
-          >
+          <div className="grid gap-12 md:grid-cols-[0.85fr_1.15fr] md:items-center md:gap-16">
             <div className="relative mx-auto aspect-[4/5] w-full max-w-sm overflow-hidden rounded-[1.5rem] bg-moss-deep shadow-2xl">
               <Image
                 src="/images/dr-ryu.jpg"
-                alt="류은서 원장 — 밝은 모던 한방 진료실에서"
+                alt="류은서 원장"
                 fill
                 sizes="(max-width: 768px) 100vw, 360px"
                 className="object-cover"
@@ -354,12 +324,12 @@ export default function Home() {
             <div>
               <span className="eyebrow !text-sage">院長 · 류은서 원장</span>
               <h2 className="mt-5 font-myeongjo text-3xl leading-tight md:text-4xl">
-                체질을 읽는 의사
+                한 사람을 오래 봅니다
               </h2>
               <p className="mt-6 max-w-lg leading-relaxed text-hanji/80">
-                사상체질을 평생의 공부로 삼아온 한의학 박사. 직장인의
-                만성피로에 사상체질이 가장 또렷한 해석 도구가 된다는 것을
-                임상에서 확인해 왔습니다.
+                척추·관절 통증과 교통사고 후유증, 그리고 만성피로까지. 증상만
+                잠시 누르기보다, 왜 반복되는지를 함께 찾고 추나·침·한약을
+                필요한 만큼만 조합합니다.
               </p>
               <ul className="mt-7 grid gap-2 text-sm text-hanji/70 sm:grid-cols-2">
                 {CAREER.map((c) => (
@@ -370,40 +340,104 @@ export default function Home() {
                 ))}
               </ul>
 
-              <div className="mt-10 grid gap-px overflow-hidden rounded-2xl bg-hanji/15 sm:grid-cols-3">
-                {PHILOSOPHY.map((p) => (
-                  <div key={p.title} className="bg-moss p-6">
-                    <h3 className="font-myeongjo text-base text-hanji">
-                      {p.title}
-                    </h3>
-                    <p className="mt-3 text-xs leading-relaxed text-hanji/70">
-                      {p.body}
-                    </p>
-                  </div>
-                ))}
+              <div className="mt-9">
+                <LinkButton
+                  href="#reservation"
+                  className="bg-hanji !text-moss hover:bg-hanji-deep"
+                >
+                  진료 예약하기
+                </LinkButton>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 위치 ──────────────────────────────────────────── */}
-      <section id="location" className="scroll-mt-20 py-20 md:py-28">
+      {/* ── 진료비 · 진료시간 ──────────────────────────────── */}
+      <section id="info" className="scroll-mt-20 py-20 md:py-28">
+        <div className="mx-auto max-w-6xl px-6">
+          <Reveal className="max-w-2xl">
+            <SectionLabel ko="진료비 · 진료시간" en="Info" />
+            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-4xl">
+              미리 알고 오시도록
+            </h2>
+          </Reveal>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {/* 비급여 안내 */}
+            <Reveal className="card p-8 md:p-10">
+              <h3 className="font-myeongjo text-xl text-ink">진료비 안내</h3>
+              <dl className="mt-6 divide-y divide-paper-line">
+                {PRICES.map((p) => (
+                  <div
+                    key={p.item}
+                    className="flex items-baseline justify-between gap-4 py-3"
+                  >
+                    <dt className="text-sm text-ink">{p.item}</dt>
+                    <dd className="text-right text-sm text-ink-soft">
+                      {p.price}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-5 text-xs leading-relaxed text-ink-soft/80">
+                ※ 비급여 항목은 의료기관마다 다를 수 있으며, 정확한 금액은
+                상담 시 안내해 드립니다.
+              </p>
+            </Reveal>
+
+            {/* 진료시간 + 예약 */}
+            <Reveal delay={0.08} className="card p-8 md:p-10">
+              <h3 className="font-myeongjo text-xl text-ink">진료시간</h3>
+              <dl className="mt-6 space-y-2.5 text-sm">
+                {HOURS.map((h) => (
+                  <div key={h.day} className="flex items-center justify-between gap-3">
+                    <dt className="text-ink-soft">{h.day}</dt>
+                    <dd className="flex items-center gap-2 font-medium text-ink">
+                      {h.time}
+                      {h.note && (
+                        <span className="rounded-full bg-sage-soft px-2 py-0.5 text-[11px] font-semibold text-moss">
+                          {h.note}
+                        </span>
+                      )}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2 border-t border-paper-line pt-6 text-sm">
+                <span className="text-ink-soft">
+                  전화 <span className="font-medium text-ink">02-720-0000</span>
+                </span>
+                <span className="text-ink-soft">
+                  카카오 <span className="font-medium text-ink">@별채한의원</span>
+                </span>
+              </div>
+              <p className="mt-4 text-xs text-ink-soft/80">
+                평일 야간(~20시)·토요일 진료로 직장인도 편하게 내원하실 수
+                있습니다.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 오시는 길 ──────────────────────────────────────── */}
+      <section id="location" className="scroll-mt-20 border-t border-paper-line bg-white py-20 md:py-28">
         <div className="mx-auto max-w-6xl px-6">
           <Reveal className="max-w-2xl">
             <SectionLabel ko="오시는 길" en="Location" />
-            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-5xl">
+            <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-ink md:text-4xl">
               북촌 골목 안,
               <br />
-              조용한 진료실
+              찾기 쉬운 자리
             </h2>
           </Reveal>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2 md:items-stretch">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-hanji-deep md:aspect-auto">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[1.5rem] bg-hanji-deep">
               <Image
                 src="/images/clinic-exterior.jpg"
-                alt="별채 한의원 외관 — 아이보리 벽과 원목 입구, 화분이 놓인 거리"
+                alt="별채 한의원 외관 — 아이보리 벽과 원목 입구"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -412,27 +446,14 @@ export default function Home() {
 
             <div className="card flex flex-col justify-center p-8 md:p-10">
               <p className="font-myeongjo text-2xl leading-snug text-ink">
-                서울 종로구
-                <br />
-                북촌로 11길 14
+                서울 종로구 북촌로 11길 14
               </p>
               <p className="mt-2 text-sm text-ink-soft">우편번호 03059</p>
-
-              <dl className="mt-8 space-y-2.5 text-sm">
-                {HOURS.map((h) => (
-                  <div key={h.day} className="flex justify-between gap-3">
-                    <dt className="text-ink-soft">{h.day}</dt>
-                    <dd className="font-medium text-ink">{h.time}</dd>
-                  </div>
-                ))}
-              </dl>
 
               <div className="mt-8 grid grid-cols-3 gap-4 border-t border-paper-line pt-6">
                 {TRANSPORT.map((t) => (
                   <div key={t.title}>
-                    <p className="text-xs font-semibold text-moss">
-                      {t.title}
-                    </p>
+                    <p className="text-xs font-semibold text-moss">{t.title}</p>
                     <p className="mt-1 text-xs leading-relaxed text-ink-soft">
                       {t.body}
                     </p>
@@ -440,13 +461,10 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 border-t border-paper-line pt-6 text-sm">
-                <span className="text-ink-soft">
-                  전화 <span className="text-ink">02-720-0000</span>
-                </span>
-                <span className="text-ink-soft">
-                  카카오 <span className="text-ink">@별채한의원</span>
-                </span>
+              <div className="mt-8 border-t border-paper-line pt-6">
+                <LinkButton href="#reservation" size="sm">
+                  진료 예약하기
+                </LinkButton>
               </div>
             </div>
           </div>
@@ -454,10 +472,7 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ───────────────────────────────────────────── */}
-      <section
-        id="faq"
-        className="scroll-mt-20 border-y border-paper-line bg-white py-20 md:py-24"
-      >
+      <section id="faq" className="scroll-mt-20 py-20 md:py-24">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -485,39 +500,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 클로징 밴드 · 상담 코너 ───────────────────────── */}
+      {/* ── 클로징 밴드 ───────────────────────────────────── */}
       <section className="relative w-full overflow-hidden">
         <Image
           src="/images/nook.jpg"
-          alt="따뜻한 햇살이 드는 모던 한방 상담 코너"
+          alt="따뜻한 햇살이 드는 한의원 상담 공간"
           fill
           sizes="100vw"
           className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/40 to-ink/20" />
-        <div className="relative mx-auto flex min-h-[56vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
+        <div className="relative mx-auto flex min-h-[52vh] max-w-6xl flex-col items-center justify-center px-6 py-24 text-center">
           <Reveal>
             <span className="eyebrow !text-sage">예약 안내</span>
             <h2 className="mt-5 font-myeongjo text-3xl leading-tight text-hanji md:text-5xl">
-              차 한 잔의 거리에서,
+              오늘의 통증을
               <br />
-              체질부터 시작해요
+              내일로 넘기지 마세요
             </h2>
             <p className="mx-auto mt-6 max-w-md leading-relaxed text-hanji/75">
-              퇴근길에 들러 천천히 짚어보는 70분. 먼저 1분 진단으로 가볍게
-              시작해도 좋습니다.
+              전화 한 통, 또는 아래 양식으로 편하게 예약하세요. 평일 야간과
+              토요일에도 진료합니다.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <LinkButton href="#reservation" size="lg">
-                진료 예약하기
+              <LinkButton href="tel:0227200000" size="lg">
+                전화 예약 02-720-0000
               </LinkButton>
               <LinkButton
-                href="#quiz"
+                href="#reservation"
                 variant="outline"
                 size="lg"
                 className="border-hanji/40 !text-hanji hover:border-hanji hover:!bg-hanji/10"
               >
-                1분 체질 진단 →
+                온라인 예약 →
               </LinkButton>
             </div>
           </Reveal>
@@ -549,9 +564,9 @@ export default function Home() {
             <Link href="#top" className="hover:text-ink">
               ↑ 맨 위로
             </Link>
-            <LinkButton href="#quiz" variant="link">
-              아직 망설여진다면, 1분 체질 진단 →
-            </LinkButton>
+            <Link href="#treatments" className="text-moss hover:underline">
+              진료 안내 다시 보기 →
+            </Link>
           </div>
         </div>
       </section>

@@ -5,7 +5,7 @@ const CLINIC = {
   name: "별채 한의원",
   alternateName: "BYULCHAE Korean Medicine Clinic",
   description:
-    "북촌 한옥 골목 안의 조용한 서재 같은 한의원. 사상체질 진단을 중심으로 도심 직장인의 만성피로·체질개선을 진료합니다.",
+    "북촌의 한의원. 척추·관절 통증과 교통사고 후유증은 추나요법·침·약침으로, 다이어트·만성피로는 맞춤 한약으로 진료합니다. 건강보험·자동차보험 적용, 평일 야간진료.",
   url: "https://byulchae.vercel.app",
   logo: "https://byulchae.vercel.app/icon.svg",
   image: "https://byulchae.vercel.app/opengraph-image",
@@ -13,7 +13,8 @@ const CLINIC = {
   priceRange: "₩₩",
   medicalSpecialty: [
     "Traditional Korean Medicine",
-    "Sasang Constitutional Medicine",
+    "Chuna Manual Therapy",
+    "Physical Medicine and Rehabilitation",
   ],
   address: {
     "@type": "PostalAddress",
@@ -44,19 +45,19 @@ const CLINIC = {
     {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Saturday"],
-      opens: "10:00",
-      closes: "16:00",
+      opens: "09:00",
+      closes: "14:00",
     },
   ],
   availableService: [
     {
       "@type": "MedicalProcedure",
-      name: "사상체질 진단",
-      procedureType: "https://schema.org/DiagnosticProcedure",
+      name: "추나요법",
+      procedureType: "https://schema.org/TherapeuticProcedure",
     },
     {
       "@type": "MedicalProcedure",
-      name: "맞춤 한약 처방",
+      name: "교통사고 후유증 한방치료",
       procedureType: "https://schema.org/TherapeuticProcedure",
     },
     {
@@ -66,7 +67,7 @@ const CLINIC = {
     },
     {
       "@type": "MedicalProcedure",
-      name: "수면·소화 클리닉",
+      name: "맞춤 한약 처방",
       procedureType: "https://schema.org/TherapeuticProcedure",
     },
   ],
@@ -74,14 +75,15 @@ const CLINIC = {
     "@type": "Person",
     "@id": "https://byulchae.vercel.app/#dr-ryu",
     name: "류은서",
-    jobTitle: "한의학 박사 · 원장",
+    jobTitle: "한의사 · 원장",
     description:
-      "사상체질의학 전문 한의학 박사. 직장인 만성피로의 체질별 접근 임상 연구.",
+      "척추·관절 통증과 교통사고 후유증, 한약 처방을 진료하는 한의사. 대한추나의학회 정회원.",
     alumniOf: "경희대학교 한의학과",
     knowsAbout: [
-      "사상체질의학",
-      "만성피로 한방 치료",
-      "수면·소화 통합 치료",
+      "추나요법",
+      "교통사고 후유증 한방치료",
+      "통증 한방치료",
+      "한약 처방",
     ],
     worksFor: { "@id": "https://byulchae.vercel.app/#clinic" },
   },

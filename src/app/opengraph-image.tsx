@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "별채 한의원 — 체질에 맞춰, 단정한 모던 한방";
+export const alt = "별채 한의원 — 추나·교통사고·한약 | 북촌";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -45,7 +45,7 @@ export default async function OpengraphImage() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span style={{ fontSize: 22, letterSpacing: 8, color: "#8a9a82" }}>
-            북촌 · 모던 한방
+            북촌 · 추나 · 교통사고 · 한약
           </span>
           <span
             style={{
@@ -61,19 +61,19 @@ export default async function OpengraphImage() {
 
         <div style={{ display: "flex", flexDirection: "column" }}>
           <span
-            style={{ fontSize: 112, lineHeight: 1.05, fontWeight: 700 }}
+            style={{ fontSize: 104, lineHeight: 1.06, fontWeight: 700 }}
           >
-            체질에 맞춰,
+            오래 끌어온 통증,
           </span>
           <span
             style={{
-              fontSize: 112,
-              lineHeight: 1.05,
+              fontSize: 104,
+              lineHeight: 1.06,
               fontWeight: 700,
               color: "#2e4034",
             }}
           >
-            단정하게.
+            근본부터 잡습니다.
           </span>
         </div>
 
@@ -86,7 +86,7 @@ export default async function OpengraphImage() {
             color: "#6f6b61",
           }}
         >
-          <span>사상체질 진단 · 맞춤 한약 · 약침</span>
+          <span>추나 · 교통사고 · 한약 · 건강보험 적용</span>
           <span>byulchae.vercel.app</span>
         </div>
       </div>

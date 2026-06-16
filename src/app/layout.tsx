@@ -25,25 +25,25 @@ const pretendard = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL("https://byulchae.vercel.app"),
   title: {
-    default: "별채 한의원 — 체질에 맞춰, 단정한 모던 한방",
+    default: "별채 한의원 — 추나·교통사고·한약 | 북촌",
     template: "%s · 별채 한의원",
   },
   description:
-    "북촌의 모던 한방. 사상체질 진단으로 시작하는 직장인 맞춤 한약·약침으로 만성피로와 체질을 다스립니다. 류은서 원장.",
+    "북촌 한의원. 척추·관절 통증과 교통사고 후유증은 추나요법·침·약침으로, 다이어트·만성피로는 맞춤 한약으로. 건강보험·자동차보험 적용, 평일 야간진료.",
   keywords: [
     "별채 한의원",
     "북촌 한의원",
-    "사상체질",
-    "체질진단",
-    "만성피로 한약",
-    "직장인 한의원",
+    "추나요법",
+    "교통사고 한의원",
+    "한방 다이어트",
+    "허리디스크 한의원",
     "약침",
-    "수면 클리닉",
+    "야간진료 한의원",
   ],
   openGraph: {
-    title: "별채 한의원 — 체질에 맞춰, 단정한 모던 한방",
+    title: "별채 한의원 — 추나·교통사고·한약 | 북촌",
     description:
-      "북촌의 모던 한방. 사상체질 진단으로 직장인의 체질을 읽는 곳.",
+      "척추·관절 통증, 교통사고 후유증, 다이어트·한약. 건강보험·자동차보험 적용, 평일 야간진료.",
     url: "https://byulchae.vercel.app",
     siteName: "별채 한의원",
     locale: "ko_KR",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "별채 한의원",
-    description: "체질에 맞춰, 단정한 모던 한방",
+    description: "추나·교통사고·한약 | 북촌, 건강보험·자동차보험 적용",
   },
 };
 
